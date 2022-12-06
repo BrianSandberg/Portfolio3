@@ -96,5 +96,5 @@ export default class CustomerForm extends React.Component {
         </button>
       </div>
     );
-  }
+  } //asdasdasdasdasdas 
 }
