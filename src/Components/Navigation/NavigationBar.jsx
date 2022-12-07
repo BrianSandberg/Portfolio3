@@ -3,19 +3,19 @@ import { useEffect, useState } from "react";
 import TitlesSearchResult from "../Titles/TitlesSearchResult/TitlesSearchResult";
 
 const NavigationBar = () => {
-    const [searchType, setSearchType] = useState("titles");
+  const [searchType, setSearchType] = useState("notSelected");
+  const [searchTerm, setSearchTerm] = useState("");
 
-function selectSearchType(type) {
+
+  function selectSearchType(type) {
     setSearchType(type);
     console.log(type);
-}
+  }
 
-function goToResultsPage(searchTerm) {
-    <Link to="searchResults"></Link>
-    console.log(searchTerm);
-
-
-}
+  const goToResultsPage = () => {
+    if (true)
+      <Link to="searchResults" params={searchTerm}>search</Link> // missing button and on click
+  }
 
   return (
     <>
@@ -31,13 +31,15 @@ function goToResultsPage(searchTerm) {
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
-      </nav>      
+      </nav>
       <input id="SearchField" type="text" placeholder="Search here" />
-      <input type="radio" name="SearchType" id="SearchTitles" value="Titles" onClick={() => selectSearchType("titles")}/> 
+      <input type="radio" name="SearchType" id="SearchTitles" value="Titles" onClick={() => selectSearchType("titles")} />
       <label for="SearchTitles">Titles</label>
-      <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => selectSearchType("persons")}/> 
+      <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => selectSearchType("persons")} />
       <label for="SearchPersons">Persons</label>
-     {  <button id="SearchButton" onClick={() => goToResultsPage(document.getElementById("SearchField").value)}>Search</button> }
+      {/* missing button and on click*/}
+      {goToResultsPage()}
+      
     </>
   )
 };
