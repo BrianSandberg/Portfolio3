@@ -23,8 +23,3 @@ const TitlePage = ({ title }) =>
     </Container>;
 
 export default TitlePage;
-
-
-src/FrontEndClasses
-
-sec/Pages
