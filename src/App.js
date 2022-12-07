@@ -99,6 +99,7 @@ export default class CustomerForm extends React.Component {
     );
   } //asdasdasdasdasdas 
 }
+lol remove this line, this is part of a test
 */
 
 
