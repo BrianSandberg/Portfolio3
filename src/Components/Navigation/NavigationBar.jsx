@@ -14,6 +14,7 @@ function goToResultsPage(searchTerm) {
     <Link to="searchResults"></Link>
     console.log(searchTerm);
 
+
 }
 
   return (
