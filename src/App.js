@@ -80,7 +80,7 @@ export default class CustomerForm extends React.Component {
 lol remove this line, this is part of a test
 */
 
-
+import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -91,6 +91,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Landing from "./pages/Landing";
 import TitlesSearchResult from "./Components/Titles/TitlesSearchResult/TitlesSearchResult";
+import LoginPage from "./pages/LoginPage";
 
 
 export default function App() {
@@ -103,7 +104,7 @@ export default function App() {
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="searchResults" element={<TitlesSearchResult />} /> 
-        </Route>
+          </Route>
       </Routes>
     </BrowserRouter>
   );
