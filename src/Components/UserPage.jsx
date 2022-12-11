@@ -1,55 +1,51 @@
-//Import React from "react";
+import React, { useState } from 'react';
 
-import { render } from "@testing-library/react";
+function MyForm() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-export default class FormTest extends React.Component{
-    constructor(props){
-        super(props);
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    this.state ={
-        user: {
-            username: props.username,
-            password: props.password
-        }
-    }
+    // Parse the input values
+    const data = {
+      username,
+      password,
+    };
+
+    // Send the data to the API as a POST request
+    fetch('https://localhost:3000/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(response => response.json())
+    .then(result => {
+      // Handle the API response
+    });
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="username">Username:</label>
+      <input
+        id="username"
+        type="text"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+      />
+
+      <label htmlFor="password">Password:</label>
+      <input
+        id="password"
+        type="password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
-//asdasdasdasdasd
-
-render(){
-    return (
-        <div>
-        <label>
-          First Name: 
-        </label>
-        <input type="text" value={this.state.customer.firstName}/>
-        <br/>
-        <label>
-          Last Name:
-        </label>
-        <input type="text" value={this.state.customer.lastName}/>
-        <br/>
-        <label>
-          Status:
-        </label>
-        <select value={this.state.customer.status}>
-          <option value="PENDING">
-            Pending
-          </option>
-          <option value="APPROVED">
-            Approved
-          </option>
-        </select>
-      </div>
-    );
-}
-}
-
-
-/*
-function HelloWorld(props)
-{
-    return <p> Hello WOrld </p>;
-}
-
-export default HelloWorld;*/
