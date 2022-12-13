@@ -89,7 +89,7 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Landing from "./pages/Landing";
-import TitlesSearchResult from "./Components/Titles/TitlesSearchResult/TitlesSearchResult";
+import TitlesSearchResult from "./pages/Titles/TitlesSearchResult/TitlesSearchResult";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 

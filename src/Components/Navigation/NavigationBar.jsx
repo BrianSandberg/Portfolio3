@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import TitlesSearchResult from "../Titles/TitlesSearchResult/TitlesSearchResult";
+{/*import TitlesSearchResult from "../Titles/TitlesSearchResult/TitlesSearchResult";*/}
 
 const NavigationBar = () => {
   const [searchType, setSearchType] = useState("notSelected");
