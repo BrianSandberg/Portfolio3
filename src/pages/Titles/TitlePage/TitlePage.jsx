@@ -1,25 +1,65 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
+import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import {Tabs, Tab } from "react-bootstrap";
+import { Outlet, Link } from "react-router-dom";
 
-// Components
+function TitlePage() {
+    const [urls, setUrls] = useState([]);
+    const [status, setStatus] = useState("idle");
 
-const TitlePage = ({ title }) =>
-    <Container fluid>
-        <h2>{title.PrimaryTitle}</h2>
+    async function loadTitlePage() {
 
-        <p>url: {title.url}</p>
-        <p>Type: {title.Type}</p>
-        <p>IsAdult: {title.IsAdult}</p>
-        <p>StartYear: {title.StartYear}</p>
-        <p>EndYear: {title.EndYear}</p>
-        <p>RunTimeMinutes: {title.RunTimeMinutes}</p>
-        <p>Poster: {title.Poster}</p>
-        <p>Plot: {title.Plot}</p>
-        <p>AverageRating: {title.AverageRating}</p>
-        <p>NumVotes: {title.NumVotes}</p>
-        <p>TitleGenres: {title.TitleGenres}</p>
-        <p>TitleCharacters: {title.TitleCharacters}</p>
-        <p>SimilarTitlesUrl: {title.SimilarTitlesUrl}</p>
-    </Container>;
+        try {
+            const res = await fetch("http://localhost:5001/api/titles/");
+            const json = await res.json();
+            console.log(json);
+            setUrls(json);
+
+            setStatus("done")
+    
+        } catch (error) {
+            setStatus("error")
+            console.log(error);
+        }
+    }
+    useEffect(() => { loadTitlePage() }, []);
+    return (
+        <Container>
+
+            <h1>TitlePage</h1>
+            
+            {(status === "done") &&
+
+                urls.map(url => <div><Link to="/TitlePage" params= {{urlName: url}}>{url}</Link></div>)
+            }
+        </Container>
+
+
+
+
+    );
+};
+
 
 export default TitlePage;
+
+{/* <input type="text" value={this.state.customer.firstName} /> 
+       
+        <br />
+        <label>
+            Last Name:
+        </label>
+        <input type="text" value={this.state.customer.lastName} />
+        <br />
+        <label>
+            Status:
+        </label>
+        <select value={this.state.customer.status}>
+            <option value="PENDING">
+                Pending
+            </option>
+            <option value="APPROVED">
+                Approved
+            </option>
+        </select>
+        */}
