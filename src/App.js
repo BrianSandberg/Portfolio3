@@ -80,7 +80,6 @@ export default class CustomerForm extends React.Component {
 lol remove this line, this is part of a test
 */
 
-import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -92,6 +91,7 @@ import NoPage from "./pages/NoPage";
 import Landing from "./pages/Landing";
 import TitlesSearchResult from "./Components/Titles/TitlesSearchResult/TitlesSearchResult";
 import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 
 export default function App() {
