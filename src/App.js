@@ -92,7 +92,7 @@ import Landing from "./pages/Landing";
 import TitlesSearchResult from "./pages/Titles/TitlesSearchResult/TitlesSearchResult";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
-import TitlePage from "./pages/TitlePage";
+import TitlePage from "./pages/Titles/TitlePage/TitlePage";
 
 
 
