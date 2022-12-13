@@ -109,11 +109,11 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
 
           {/* TITLES */}
+          <Route path="searchResults" element={<TitlesSearchResult />} /> 
 
           {/* PERSONS */}
 
           {/* USERS */}
-          <Route path="searchResults" element={<TitlesSearchResult />} /> 
           </Route>
       </Routes>
     </BrowserRouter>
