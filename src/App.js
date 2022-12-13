@@ -109,6 +109,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
 
           {/* TITLES */}
+          <Route path="/title/:id" element={<TitlePage/>} />
           <Route path="searchResults" element={<TitlesSearchResult />} /> 
 
           {/* PERSONS */}
