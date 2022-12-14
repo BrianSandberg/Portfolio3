@@ -15,14 +15,6 @@ function TitlePage() {
 
     const [status, setStatus] = useState("idle");
 
-    async function loadTitlePageTest() {
-        // GET request using fetch with set headers
-        const headers = { 'Content-Type': 'application/json' }
-        fetch(titleUrl2, { headers })
-            .then(response => response.json())
-            .then(data => this.setState({ totalReactPackages: data.total }));
-    }
-
     async function loadTitlePage() {
 
         try {
@@ -51,7 +43,7 @@ function TitlePage() {
 
             <h1>Something</h1>
             <p>json /* {titleUrl}</p>
-            {loadTitlePageTest.toString}
+            {/*loadTitlePage.toString*/}
             {(status === "done") &&
             
             titleElements.endYear

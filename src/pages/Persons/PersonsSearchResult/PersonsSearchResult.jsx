@@ -3,18 +3,22 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 
-function TitlesSearchResult() {
-  const [TitlesSearchResultElements, setTitlesSearchResultElements] = useState([]);
+function PersonsSearchResult() {
+  const [PersonsSearchResultElements, setPersonsSearchResultElements] = useState([]);
 
   //const {searchTerm} = useParams();
   //console.log(searchTerm);
 
   const {searchType} = useParams();
+  console.log("searchType.json");
+
+  console.log(searchType);
+  console.log("searchType.json");
 
 
   const [status, setStatus] = useState("idle");
 
-  async function loadTitlePage() {
+  async function loadPersonPage() {
 
     try {
 
@@ -24,7 +28,7 @@ function TitlesSearchResult() {
       const json = await res.json();
       console.log("2");
       console.log(json);
-      setTitlesSearchResultElements(json);
+      setPersonsSearchResultElements(json);
       console.log("3");
       setStatus("done")
       console.log("4");
@@ -36,15 +40,19 @@ function TitlesSearchResult() {
       console.log(error);
     }
   }
-  useEffect(() => { loadTitlePage() }, []);
+  useEffect(() => { loadPersonPage() }, []);
   return (
     <Container>
 
-<h1>TitlesSearchResult12</h1>
+<h1>PersonsSearchResult</h1>
 
-     {/* {(status === "done") */} {(true === true) &&
 
-<h1>TitlesSearchResult123</h1>
+    {console.log(searchType)}
+
+{console.log("searchType")}
+      {(status === "done") &&
+
+<h1>PersonsSearchResult</h1>
 
         //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 
@@ -57,4 +65,4 @@ function TitlesSearchResult() {
 
   );
 };
-export default TitlesSearchResult;
+export default PersonsSearchResult;

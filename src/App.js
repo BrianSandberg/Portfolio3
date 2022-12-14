@@ -90,6 +90,8 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Landing from "./pages/Landing";
 import TitlesSearchResult from "./pages/Titles/TitlesSearchResult/TitlesSearchResult";
+import PersonsSearchResult from "./pages/Persons/PersonsSearchResult/PersonsSearchResult";
+
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import TitlePage from "./pages/Titles/TitlePage/TitlePage";
@@ -110,9 +112,11 @@ export default function App() {
 
           {/* TITLES */}
           <Route path="/title/:id" element={<TitlePage/>} />
-          <Route path="/searchResults/:searchType" element={<TitlesSearchResult />} /> 
+          <Route path="/searchResults/titles/:searchTerm" element={<TitlesSearchResult />} />
+
 
           {/* PERSONS */}
+          <Route path="/searchResults/persons/:searchTerm" element={<PersonsSearchResult />} />
 
           {/* USERS */}
           </Route>
