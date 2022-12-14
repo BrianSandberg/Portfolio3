@@ -6,7 +6,7 @@ const NavigationBar = () => {
   
   const navigate = useNavigate();
 
-  const [searchType, setSearchType] = useState("notSelected");
+  const [searchType, setSearchType] = useState("titles");
   const [searchTerm, setSearchTerm] = useState("");
 
   const base = "/searchResults/";
@@ -22,16 +22,13 @@ const NavigationBar = () => {
   }
 
   function searchClick() {
-    //setSearchTerm(document.getElementById("SearchField").value);
+    setSearchTerm(document.getElementById("SearchField").value);
     //const SearchValue = document.getElementById("SearchField").value;
     const searchText = getValueFromInput()
     const link = base + searchType + "/" + searchText;
+    console.log("I AM NOW GOING TO: " + link);
     navigate(link, {searchText: searchText});
   }
-
-      console.log("1");
-      //navigate("");
-      console.log("2");
 
 
     
