@@ -1,29 +1,43 @@
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 
 function TitlesSearchResult() {
-  const [TitlesSearchResultElements, setTitlesSearchResultElements] = useState([]);
 
-  //const {searchTerm} = useParams();
-  //console.log(searchTerm);
+  const [TitlesSearchResultElements, setTitlesSearchResultElements] = useState([]);
+  console.log("!!!!!StartOfTitlesSearchResult!!!!!!");
 
   const {searchTerm} = useParams();
+  //console.log(searchTerm);
+  
+  //const [{searchTerm}, setSearchTerm] = useState("");
 
+  
+  const testFetch = "http://localhost:5001/api/titles/tt0088634";
 
+  // tt5787344
 
   const [status, setStatus] = useState("idle");
 
-  const apiBase = ""
+  const apiBase = "http://localhost:5001/api/titles?search="
+
+function doSomething(list) {
+  if(list != null) {
+    list.map(élement => <p>title</p>)
+  }
+  return x;
+}
+
+
 
   async function loadTitlePage() {
 
-    try {
-      console.log(searchTerm + "!!!!!123321321321312!!!!!!");
+   
+      console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-      const res = await fetch("something");
-      console.log("1");
+      const res = await fetch(apiBase + searchTerm);
+      console.log("1321");
       console.log(res);
       const json = await res.json();
       console.log("2");
@@ -33,22 +47,24 @@ function TitlesSearchResult() {
       setStatus("done")
       console.log("4");
 
-    } catch (error) {
-      setStatus("error")
       console.log("5");
-
-      console.log(error);
-    }
+    
   }
-  useEffect(() => { loadTitlePage() }, []);
+  useEffect(() => { loadTitlePage()}, [searchTerm]);
   return (
     <Container>
 
-<h1>TitlesSearchResult12</h1>
+      {}
+      <h1>TitlesSearchResult</h1>
+      {doSomething(TitlesSearchResultElements.items)}
+     {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
+     
+   
+      {/* {(status === "done") */} {(true === true) &&
 
-     {/* {(status === "done") */} {(true === true) &&
+<h1>{TitlesSearchResultElements.originalTitle}</h1>
+      
 
-<h1>TitlesSearchResult123</h1>
 
         //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 
