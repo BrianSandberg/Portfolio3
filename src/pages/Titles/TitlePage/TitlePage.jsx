@@ -15,34 +15,32 @@ function TitlePage() {
 
     const [status, setStatus] = useState("idle");
 
-    
+    async function loadTitlePageTest() {
+        // GET request using fetch with set headers
+        const headers = { 'Content-Type': 'application/json' }
+        fetch(titleUrl2, { headers })
+            .then(response => response.json())
+            .then(data => this.setState({ totalReactPackages: data.total }));
+    }
 
     async function loadTitlePage() {
 
         try {
 
-            const res = await fetch({titleUrl2});
+            const res = await fetch(titleUrl2);
             console.log("1");
-
             console.log(res);
-            console.log("2");
-
             const json = await res.json();
-            console.log("4");
-
+            console.log("2");
             console.log(json);
-            console.log("5");
-
-       
             setTitleElements(json);
-            console.log("5");
-
+            console.log("3");
             setStatus("done")
-            console.log("7");
+            console.log("4");
 
         } catch (error) {
             setStatus("error")
-            console.log("8");
+            console.log("5");
 
             console.log(error);
         }
@@ -53,12 +51,14 @@ function TitlePage() {
 
             <h1>Something</h1>
             <p>json /* {titleUrl}</p>
-            
+            {loadTitlePageTest.toString}
             {(status === "done") &&
-
-                titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
+            
+            titleElements.endYear
+                //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 
             }
+            <p>after</p>
         </Container>
 
 

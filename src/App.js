@@ -110,7 +110,7 @@ export default function App() {
 
           {/* TITLES */}
           <Route path="/title/:id" element={<TitlePage/>} />
-          <Route path="searchResults" element={<TitlesSearchResult />} /> 
+          <Route path="/searchResults/:searchType" element={<TitlesSearchResult />} /> 
 
           {/* PERSONS */}
 

@@ -1,10 +1,15 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 {/*import TitlesSearchResult from "../Titles/TitlesSearchResult/TitlesSearchResult";*/}
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
   const [searchType, setSearchType] = useState("notSelected");
   const [searchTerm, setSearchTerm] = useState("");
+
+  const apiTitlesBase = "/title/";
+  const apiPersonsBase = "http://localhost:5001/api/persons?search=";
 
 
   function selectSearchType(type) {
@@ -12,9 +17,24 @@ const NavigationBar = () => {
     console.log(type);
   }
 
+
   const goToResultsPage = () => {
     if (true)
-      <Link to="searchResults" params={searchTerm}>search</Link> // missing button and on click
+   
+    try {
+
+      const searchText = document.getElementById("SearchField").innerHTML;
+      console.log("1");
+      navigate("");
+      console.log("2");
+
+
+    } catch (error) {
+      console.log("yo");
+      console.log(error);
+      
+    }
+    // <Link to="searchResults" params={searchTerm}>search</Link> // missing button and on click
   }
 
   return (
@@ -37,8 +57,9 @@ const NavigationBar = () => {
       <label for="SearchTitles">Titles</label>
       <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => selectSearchType("persons")} />
       <label for="SearchPersons">Persons</label>
-      {/* missing button and on click*/}
-      {goToResultsPage()}
+      <button><Link to="searchResults/:searchTerm" params={{searchTerm, searchType}}>search</Link></button>
+      <>{searchType}</>
+    
       
     </>
   )
