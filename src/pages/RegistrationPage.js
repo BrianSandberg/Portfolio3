@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class RegistrationPage extends React.Component {
+export default class UserRegistrationPage extends React.Component {
 /*  state = {
     username: "",
     password: "",
@@ -23,27 +23,32 @@ export default class RegistrationPage extends React.Component {
     // Validate password
     if (this.state.password !== this.state.passwordVerification) {
       // Return an error when password and verifypassword does not match
-      return;
+      return ;
     }
     const requestBody = {
       //Request body skal hedde {"username": "userinput", "password":"passwordinput"}
-      Username: this.state.user.Username,
-      Password: this.state.user.Password
+      username: this.state.username,
+      password: this.state.password
     };
-
+    console.log(requestBody);
     // Submit the form values to the server
-    fetch("https://Localhost:3000/api/users/register", {
+    //Needs the chrome extension called "allow-control-allow-origin"
+    fetch("http://localhost:5001/api/users/register", {
+      
       method: "POST",
-      headers: {'Content-Type': 'application/json'},
+      
       //Skal sende username og password med requesten
       body: JSON.stringify(requestBody)
     })
-      .then(response => {
-        // Resonse from the server
+      .then(response =>{
+        // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
       .catch(error => {
         // Handle any errors that occur
       });
+
+      console.log(this.state.username);
+      console.log(JSON.stringify(requestBody));
   };
 
   handleChange = event => {
