@@ -9,14 +9,18 @@ function TitlesSearchResult() {
   //const {searchTerm} = useParams();
   //console.log(searchTerm);
 
-  const {searchType} = useParams();
+  const {searchTerm} = useParams();
+
 
 
   const [status, setStatus] = useState("idle");
 
+  const apiBase = ""
+
   async function loadTitlePage() {
 
     try {
+      console.log(searchTerm + "!!!!!123321321321312!!!!!!");
 
       const res = await fetch("something");
       console.log("1");

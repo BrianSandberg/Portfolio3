@@ -9,20 +9,24 @@ const NavigationBar = () => {
   const [searchType, setSearchType] = useState("notSelected");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const apiTitlesBase = "/searchResults/";
-  const apiPersonsBase = "http://localhost:5001/api/persons?search=";
+  const base = "/searchResults/";
 
-
-  function selectSearchType(type) {
+  function setSearchTypefunc(type) {
     setSearchType(type);
     console.log(type);
   }
 
+  function getValueFromInput() {
+    const x = document.getElementById("SearchField").value
+  return x;
+  }
+
   function searchClick() {
-    setSearchTerm(document.getElementById("SearchField").value);
-    const test123 = document.getElementById("SearchField").value;
-    const link = apiTitlesBase + searchType + "/" + test123;
-    navigate(link);
+    //setSearchTerm(document.getElementById("SearchField").value);
+    //const SearchValue = document.getElementById("SearchField").value;
+    const searchText = getValueFromInput()
+    const link = base + searchType + "/" + searchText;
+    navigate(link, {searchText: searchText});
   }
 
       console.log("1");
@@ -50,10 +54,11 @@ const NavigationBar = () => {
           </li>
         </ul>
       </nav>
+     {/* setSearchTermfunc(document.getElementById("SearchField").value)*/}
       <input id="SearchField" type="text" placeholder="Search here" />
-      <input type="radio" name="SearchType" id="SearchTitles" value="Titles" onClick={() => selectSearchType("titles")} />
+      <input type="radio" name="SearchType" id="SearchTitles" value="Titles" onClick={() => setSearchTypefunc("titles") } />
       <label for="SearchTitles">Titles</label>
-      <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => selectSearchType("persons")} />
+      <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => setSearchTypefunc("persons")} />
       <label for="SearchPersons">Persons</label>
       <button on onClick={searchClick}>{  /*<Link to={link} params={{searchTerm, searchType}}>search</Link>*/}Search</button>
       <>{searchType}</>
