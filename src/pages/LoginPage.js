@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Man kan godt gemme username i en pseudo global variable, så længe man exporter og importer
+//Username skal hentes fra alle pages, da det bliver brugt til at lave request på API fra user side
 export default class LoginPage extends React.Component {
   constructor(props) {
     super(props);
