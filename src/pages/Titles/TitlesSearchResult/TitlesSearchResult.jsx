@@ -23,10 +23,10 @@ function TitlesSearchResult() {
   const apiBase = "http://localhost:5001/api/titles?search="
 
 function doSomething(list) {
-  if(list != null) {
-    list.map(élement => <p>title</p>)
+ if(list != null) {
+   return list.map(element => <p>{element.primaryTitle}</p>)
   }
-  return x;
+  else return <p>yoyoyo</p>
 }
 
 
