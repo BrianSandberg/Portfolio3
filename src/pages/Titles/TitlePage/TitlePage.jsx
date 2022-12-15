@@ -14,11 +14,12 @@ function TitlePage() {
     const titleUrl2 = "http://localhost:5001/api/titles/tt0088634"
 
     const [status, setStatus] = useState("idle");
-
+    let counter = 1;
     async function loadTitlePage() {
-
+        
         try {
-
+          
+            <h1>{counter++}</h1>
             const res = await fetch(titleUrl2);
             console.log("1");
             console.log(res);
@@ -40,7 +41,7 @@ function TitlePage() {
     useEffect(() => { loadTitlePage() }, [titleElements]);
     return (
         <Container>
-
+          <h1>{counter++}</h1>
             <h1>Something</h1>
             <p>json /* {titleUrl}</p>
             {/*loadTitlePage.toString*/}
