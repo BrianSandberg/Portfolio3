@@ -2,57 +2,72 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
+import ShowSearchInList from "./ShowSearchInList";
 
 function PersonsSearchResult() {
   const [PersonsSearchResultElements, setPersonsSearchResultElements] = useState([]);
+  console.log("!!!!!StartOfTitlesSearchResult!!!!!!");
 
   //const {searchTerm} = useParams();
   //console.log(searchTerm);
 
-  const {searchType} = useParams();
-  console.log("searchType.json");
+  const {searchTerm} = useParams();
 
-  console.log(searchType);
-  console.log("searchType.json");
-
+  const testFetch = "http://localhost:5001/api/persons/nm0000002";
 
   const [status, setStatus] = useState("idle");
 
+  const apiBase = "http://localhost:5001/api/persons?search="
+
+
   async function loadPersonPage() {
 
-    try {
+   
+    console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-      const res = await fetch("something");
-      console.log("1");
-      console.log(res);
-      const json = await res.json();
-      console.log("2");
-      console.log(json);
-      setPersonsSearchResultElements(json);
-      console.log("3");
-      setStatus("done")
-      console.log("4");
+    const res = await fetch(apiBase + searchTerm);
+    console.log("1321");
+    console.log(res);
+    const json = await res.json();
+    console.log("2");
+    console.log(json);
+    setPersonsSearchResultElements(json);
+    console.log("3");
+    setStatus("done")
+    console.log("4");
 
-    } catch (error) {
-      setStatus("error")
-      console.log("5");
-
-      console.log(error);
-    }
-  }
-  useEffect(() => { loadPersonPage() }, []);
+    console.log("5");
+  
+}
+  useEffect(() => { loadPersonPage() }, [searchTerm]);
   return (
     <Container>
 
-<h1>PersonsSearchResult</h1>
+      { }
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Name</th>
+            <th scope="col">Birth Year</th>
+            <th scope="col">Death Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/*turnIntoTableRow(TitlesSearchResultElements.items)*/}
+          {<ShowSearchInList list={PersonsSearchResultElements.items} ></ShowSearchInList>}
+        </tbody>
+      </table>
+      <h1>PersonsSearchResult</h1>
+      {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
+     
+   
+      {/* {(status === "done") */} {(true === true) &&
+<Container>
+<h1>{PersonsSearchResultElements.name}</h1>
+</Container>
+      
 
-
-    {console.log(searchType)}
-
-{console.log("searchType")}
-      {(status === "done") &&
-
-<h1>PersonsSearchResult</h1>
 
         //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 

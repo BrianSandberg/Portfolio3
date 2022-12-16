@@ -95,6 +95,7 @@ import PersonsSearchResult from "./pages/Persons/PersonsSearchResult/PersonsSear
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import TitlePage from "./pages/Titles/TitlePage/TitlePage";
+import PersonPage from "./pages/Persons/PersonPage/PersonPage";
 
 
 
@@ -116,6 +117,7 @@ export default function App() {
 
 
           {/* PERSONS */}
+          <Route path="/person/:id" element={<PersonPage/>} /> {/*What does this?*/}
           <Route path="/searchResults/persons/:searchTerm" element={<PersonsSearchResult />} />
 
           {/* USERS */}

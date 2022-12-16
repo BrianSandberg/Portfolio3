@@ -9,7 +9,7 @@ border: none;
 transition: color 1s;
 &:hover {
 	color: green;
-	transition: 10ms ease-in;
+	transition: 10ms ease-in;}
 `
 
 export default DarkmodeButton

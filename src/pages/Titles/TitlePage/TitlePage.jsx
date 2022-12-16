@@ -51,6 +51,7 @@ function TitlePage() {
             {(status === "done") &&
             
             titleElements.primarytitle
+            
                 //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 
             }
