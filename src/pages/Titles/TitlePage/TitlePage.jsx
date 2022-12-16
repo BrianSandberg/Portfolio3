@@ -14,7 +14,7 @@ function TitlePage() {
     const titleUrl2 = "http://localhost:5001/api/titles/tt0343107"
 
     // tt0343107
-
+    console.log(titleUrl);
     const [status, setStatus] = useState("idle");
     let counter = 1;
    
@@ -50,7 +50,7 @@ function TitlePage() {
             {/*loadTitlePage.toString*/}
             {(status === "done") &&
             
-            titleElements.endYear
+            titleElements.primarytitle
                 //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
 
             }
