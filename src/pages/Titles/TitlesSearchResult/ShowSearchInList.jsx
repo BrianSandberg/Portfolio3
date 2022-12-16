@@ -14,20 +14,25 @@ function ShowSearchInList({ list }) {
     if (list != null) {
         let counter = 1;
         return list.map(element =>
-            <tr onClick = {() => takeMeToThis(element.url)}>
-                <td>{counter++}</td>
-                <td><img src={element.poster} alt="No Poster Available"></img></td>
-                <td>{element.primaryTitle}</td>
-                <td>{element.averageRating}</td>
-            </tr>
-
+     
+                <tr onClick={() => takeMeToThis(element.url)}>
+                    <td>{counter++}</td>
+                    <td><img src={element.poster} alt="No Poster Available"></img></td>
+                    <td>{element.primaryTitle}</td>
+                    <td>{element.averageRating}</td>
+                </tr>
+  
         )
     }
     else return <p>No List ???</p>
 
     function takeMeToThis(url) {
-       // navigate(url);
-       <TitlePage></TitlePage>
+        //navigate(url);
+        //<TitlePage></TitlePage>
+        console.log(url.substring(url.lastIndexOf('/') + 1));
+        const id = url.substring(url.lastIndexOf('/') + 1);
+        const link = "/title/" + id;
+        navigate(link);
     }
 
 };

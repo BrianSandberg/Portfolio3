@@ -64,7 +64,7 @@ function TitlesSearchResult() {
   return (
     <Container>
 
-      {}
+      { }
       <table class="table table-hover">
         <thead>
           <tr>
@@ -75,12 +75,12 @@ function TitlesSearchResult() {
           </tr>
         </thead>
         <tbody>
-        {/*turnIntoTableRow(TitlesSearchResultElements.items)*/}
-        {<ShowSearchInList list = {TitlesSearchResultElements.items} ></ShowSearchInList>}
+          {/*turnIntoTableRow(TitlesSearchResultElements.items)*/}
+          {<ShowSearchInList list={TitlesSearchResultElements.items} ></ShowSearchInList>}
         </tbody>
       </table>
       <h1>TitlesSearchResult</h1>
-     {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
+      {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
      
    
       {/* {(status === "done") */} {(true === true) &&
