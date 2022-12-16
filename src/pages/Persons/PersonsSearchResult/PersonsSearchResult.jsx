@@ -49,8 +49,7 @@ function PersonsSearchResult() {
           <tr>
             <th scope="col">Rank</th>
             <th scope="col">Name</th>
-            <th scope="col">Birth Year</th>
-            <th scope="col">Death Year</th>
+            <th scope="col">Url</th>
           </tr>
         </thead>
         <tbody>
