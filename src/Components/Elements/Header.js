@@ -3,8 +3,6 @@ import ThemeContext from '../ThemeContext'
 import Container from '../StyledComponents/Container'
 import Title from '../StyledComponents/Title'
 import DarkmodeButton from '../StyledComponents/DarkmodeButton'
-import Button from '../StyledComponents/Button'
-import Footer from './Footer'
  
 
 function Header() {
@@ -18,7 +16,7 @@ function Header() {
             <>
                 <Container color={theme}>
                 <Title color={theme}>My Site</Title>
-                <Button color={theme} onClick={handleThemeChange}>Darkmode</Button>
+                <DarkmodeButton color={theme} onClick={handleThemeChange}>Darkmode</DarkmodeButton>
                 </Container>
             </>
         )
