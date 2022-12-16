@@ -2,6 +2,7 @@ import { Component, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
+import ShowSearchInList from "./ShowSearchInList";
 
 function TitlesSearchResult() {
 
@@ -22,12 +23,21 @@ function TitlesSearchResult() {
 
   const apiBase = "http://localhost:5001/api/titles?search="
 
-function doSomething(list) {
- if(list != null) {
-   return list.map(element => <p>{element.primaryTitle}</p>)
+  function turnIntoTableRow(list) {
+    if (list != null) {
+      let counter = 1;
+      return list.map(element =>
+        <tr>
+          <td>{counter++}</td>
+          <td><img src={element.poster} alt="No Poster Available"></img></td>
+          <td>{element.primaryTitle}</td>
+          <td>{element.averageRating}</td>
+        </tr>
+
+      )
+    }
+    else return <p>yoyoyo</p>
   }
-  else return <p>yoyoyo</p>
-}
 
 
 
@@ -54,10 +64,23 @@ function doSomething(list) {
   return (
     <Container>
 
-      {}
+      { }
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Poster</th>
+            <th scope="col">Primary title</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/*turnIntoTableRow(TitlesSearchResultElements.items)*/}
+          {<ShowSearchInList list={TitlesSearchResultElements.items} ></ShowSearchInList>}
+        </tbody>
+      </table>
       <h1>TitlesSearchResult</h1>
-      {doSomething(TitlesSearchResultElements.items)}
-     {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
+      {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
      
    
       {/* {(status === "done") */} {(true === true) &&
