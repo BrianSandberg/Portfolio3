@@ -11,10 +11,13 @@ function TitlePage() {
 
     const titleUrl = api+id;
 
-    const titleUrl2 = "http://localhost:5001/api/titles/tt0088634"
+    const titleUrl2 = "http://localhost:5001/api/titles/tt0343107"
+
+    // tt0343107
 
     const [status, setStatus] = useState("idle");
     let counter = 1;
+   
     async function loadTitlePage() {
         
         try {
@@ -38,7 +41,7 @@ function TitlePage() {
             console.log(error);
         }
     }
-    useEffect(() => { loadTitlePage() }, [titleElements]);
+    useEffect(() => { loadTitlePage() }, []);
     return (
         <Container>
           <h1>{counter++}</h1>
