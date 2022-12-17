@@ -18,7 +18,6 @@ flex-direction: column;
 justify-content: center;
 max-width: 1000px;
 margin: auto;
-color: ${props => props.color === 'dark' ? 'whitesmoke' : '#202020'};
 `;
 
 export const Column = styled.div`
