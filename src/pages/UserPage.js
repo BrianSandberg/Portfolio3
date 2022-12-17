@@ -23,8 +23,8 @@ const Userpage = () => {
 
   //console.log("here2",user.bookmarkedTitles);
   const titles = userBookmarkedTitles.map((titles) => <li>Title: {titles.title_ID} - Gemt: {titles.timestamp}</li>);
-  const actors = userBookmarkedActors.map((actors) => <li>Person: {actors.person_ID} - Gemt: {actors.timestamp} </li>)
-  const ratings = userRatings.map((ratings) => <li>{ratings.title_ID} Rating: {ratings.rating}</li>)
+  const actors = userBookmarkedActors.map((actors) => <li>Person: {actors.person_ID} - Gemt: {actors.timestamp} </li>);
+  const ratings = userRatings.map((ratings) => <li>{ratings.title_ID} Rating: {ratings.rating}</li>);
   
 
   return (
