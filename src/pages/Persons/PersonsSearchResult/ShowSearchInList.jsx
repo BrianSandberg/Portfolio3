@@ -19,6 +19,8 @@ function ShowSearchInList({ list }) {
                 <tr onClick={() => takeMeToThis(element.url)}>
                     <td>{counter++}</td>
                     <td>{element.name}</td>
+                    <td>{element.birthYear}</td>
+                    <td>{element.deathYear}</td>
                     <td>{element.url}</td>
                 </tr>
   
