@@ -8,11 +8,16 @@ function TitleDetails({ title }) {
 
     const [TitleDetailsElements, setTitleDetailsElements] = useState([]);
     console.log("!!!!!TitleDetails!!!!!!");
+    const [name, setname] = useState([]);
+
+    const navigate = useNavigate();
+
 
     const personApi = "http://localhost:5001/api/persons/"
 
     console.log("!!!!!TitleDetails!!!!!!2");
 
+    let counter = 1;
 
 
     if (title != null) {
@@ -54,52 +59,66 @@ function TitleDetails({ title }) {
     function insertCharacters() {
         return (
             <>
-            <p><b>Characters in the title:</b></p>
-            <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-          </>
+                <p><b>Characters in the title:</b></p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Character</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {insertIntoRow(title.titleCharacters)}
+                    </tbody>
+                </table>
+            </>
         )
     }
 
-    async function insertIntoRow(characterList) {
-        let res;
-        return list.map(element =>
-            res = await fetch(personApi + characterList);
-        <tr onClick={() => takeMeToThis(element.url)}>
-            <td>{counter++}</td>
-            <td><img src={element.poster} alt="No Poster Available"></img></td>
-            <td>{element.primaryTitle}</td>
-            <td>{element.averageRating}</td>
-        </tr>
+    function insertIntoRow(characterList) {
+       
+        if (characterList != null) {
+            return characterList.map(element =>
+                <tr role="button" onClick={() => navigate("/person/" + element.personId) }>
+                    <td>{counter++}</td>
+                    <td>{element.name}</td>
+                    <td>{element.titleCharacter}</td>
+                </tr>
+            )
+        }
+        else return "characterList is loading/not working :)"
     }
-    
+
+    /*async*/ function getPersonName(characterId) {
+        if (characterId != null) {
+            console.log("PERSONPERSONPERSONPERSONPERSONPERSONPERSON");
+            try {
+
+                <h1>{counter++}</h1>
+
+                console.log("yoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyo");
+
+               // const res = await fetch(personApi + characterId);
+                console.log("1 - THIS IS THE RESPONSE:");
+               // console.log(res);
+               // const person = await res.json();
+                console.log("2");
+                //console.log(person);
+                console.log("3");
+                console.log("4");
+               // setname(person.name)
+                return <td>personName</td>
+            } catch (error) {
+                console.log("5");
+
+                console.log(error);
+            }
+            return "personName"
+        } else return "loading/not working";
+
+
+    }
 
 };
 export default TitleDetails;

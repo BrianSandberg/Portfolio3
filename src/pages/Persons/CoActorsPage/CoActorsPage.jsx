@@ -71,7 +71,7 @@ function PersonPage() {
 
     function insertRows(list) {
         return (list.map(element =>
-            <tr onClick={() => navigate("/person/" + element.personId)}>
+            <tr role="button" onClick={() => navigate("/person/" + element.personId)}>
                 <td>{counter++}</td>
                 <td>{element.name}</td>
                 <td>{element.frequency}</td>

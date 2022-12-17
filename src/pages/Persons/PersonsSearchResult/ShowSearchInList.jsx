@@ -16,7 +16,7 @@ function ShowSearchInList({ list }) {
         let counter = 1;
         return list.map(element =>
      
-                <tr onClick={() => takeMeToThis(element.url)}>
+                <tr role="button" onClick={() => takeMeToThis(element.url)}>
                     <td>{counter++}</td>
                     <td>{element.name}</td>
                     <td>{element.birthYear}</td>

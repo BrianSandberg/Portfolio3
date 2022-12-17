@@ -84,7 +84,7 @@ function TitlePage() {
 
             <Container>
            
-                {<TitleDetails title={titleElements} ></TitleDetails>}
+                {<TitleDetails title={titleElements}></TitleDetails>}
         
 
             </Container>
