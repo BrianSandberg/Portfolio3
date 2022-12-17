@@ -87,9 +87,8 @@ function TitleDetails({ title }) {
           </>
         )
     }
-/*
+
     async function insertIntoRow(characterList) {
-        const person = await res.json();
         let res;
         return list.map(element =>
             res = await fetch(personApi + characterList);
@@ -100,7 +99,7 @@ function TitleDetails({ title }) {
             <td>{element.averageRating}</td>
         </tr>
     }
-    */
+    
 
 };
 export default TitleDetails;

@@ -1,32 +1,31 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import {Tabs, Tab } from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
 function PersonPage() {
-    const [personElements, setPersonElements] = useState([]);
-    const api = "http://localhost:5001/api/persons/"
-    
-    const {id} = useParams();
+    const [coActers, setcoActers] = useState([]);
+    const apiBase = "http://localhost:5001/api/persons/"
 
-    const personUrl = api+id;
+    const { id } = useParams();
 
-    console.log(personUrl);
+    const navigate = useNavigate();
+
+    const coActersApi = apiBase + id + "/" + "CoActors";
+
     const [status, setStatus] = useState("idle");
     let counter = 1;
-   
+
     async function loadPersonPage() {
-        
+
         try {
-          
-            <h1>{counter++}</h1>
-            const res = await fetch(personUrl);
+            const res = await fetch(coActersApi);
             console.log("1");
             console.log(res);
             const json = await res.json();
             console.log("2");
             console.log(json);
-            setPersonElements(json);
+            setcoActers(json);
             console.log("3");
             setStatus("done")
             console.log("4");
@@ -40,41 +39,45 @@ function PersonPage() {
     }
     useEffect(() => { loadPersonPage() }, []);
     return (
-        <Container>
-          <h1>{counter++}</h1>
-          <div class="container-fluid">
-            <h1>Info about {personElements.name}</h1>
-            </div>
-            <p>json /* {personUrl}</p>
-            {/*loadPersonPage.toString*/}
-            {(status === "done") &&
-            
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Birth Year</th>
-                <th scope="col">Death Year</th>
-                <th scope="col">Co-Actors</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                <th scope="row">1</th>
-                <td>{personElements.name}</td>
-                <td>{personElements.birthYear}</td>
-                <td>{personElements.deathYear}</td>
-                <td>{personElements.coActorsUrl}</td>
-                </tr>
-            </tbody>
-            </table>
-            }
-            <p>after</p>
-        </Container>
+        <>
+            <h1>COACTERS</h1>
+            <Container>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {insertRows(coActers)}
+                    </tbody>
+                </table>
+            </Container>
 
 
+
+        </>
     );
+    /*
+    <tr onClick={() => takeMeToThis(element.url)}>
+    <td>{counter++}</td>
+    <td><img src={element.poster} alt="No Poster Available"></img></td>
+    <td>{element.primaryTitle}</td>
+    <td>{element.averageRating}</td>
+</tr>
+*/
+
+    function insertRows(list) {
+        return (list.map(element =>
+            <tr onClick={() => navigate("/person/" + element.personId)}>
+                <td>{counter++}</td>
+                <td>{element.name}</td>
+                <td>{element.frequency}</td>
+            </tr>
+        ))
+    }
 
 };
 
