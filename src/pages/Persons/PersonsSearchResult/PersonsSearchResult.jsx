@@ -6,14 +6,10 @@ import ShowSearchInList from "./ShowSearchInList";
 
 function PersonsSearchResult() {
   const [PersonsSearchResultElements, setPersonsSearchResultElements] = useState([]);
-  console.log("!!!!!StartOfTitlesSearchResult!!!!!!");
+  console.log("!!!!!StartOfPersonsSearchResult!!!!!!");
 
-  //const {searchTerm} = useParams();
-  //console.log(searchTerm);
 
   const {searchTerm} = useParams();
-
-  const testFetch = "http://localhost:5001/api/persons/nm0000002";
 
   const [status, setStatus] = useState("idle");
 
@@ -23,7 +19,7 @@ function PersonsSearchResult() {
   async function loadPersonPage() {
 
    
-    console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
+    console.log(searchTerm + "!!!!!PersonsSearchResult!!!!!!");
 
     const res = await fetch(apiBase + searchTerm);
     console.log("1321");
@@ -55,29 +51,18 @@ function PersonsSearchResult() {
           </tr>
         </thead>
         <tbody>
-          {/*turnIntoTableRow(TitlesSearchResultElements.items)*/}
           {<ShowSearchInList list={PersonsSearchResultElements.items} ></ShowSearchInList>}
         </tbody>
       </table>
       <h1>PersonsSearchResult</h1>
-      {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
-     
-   
+
+
       {/* {(status === "done") */} {(true === true) &&
-<Container>
-<h1>{PersonsSearchResultElements.name}</h1>
-</Container>
-      
-
-
-        //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
-
+        <Container>
+          <h1>{PersonsSearchResultElements.name}</h1>
+        </Container>
       }
-      <p>after</p>
     </Container>
-
-
-
 
   );
 };
