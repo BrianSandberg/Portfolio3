@@ -96,6 +96,7 @@ import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import TitlePage from "./pages/Titles/TitlePage/TitlePage";
 import PersonPage from "./pages/Persons/PersonPage/PersonPage";
+import CoActorsPage from "./pages/Persons/CoActorsPage/CoActorsPage";
 
 
 
@@ -106,7 +107,6 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route path="*" element={<NoPage />} />
           <Route index element={<Landing />} />
-         
 
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
@@ -119,6 +119,8 @@ export default function App() {
           {/* PERSONS */}
           <Route path="/person/:id" element={<PersonPage/>} /> {/*What does this?*/}
           <Route path="/searchResults/persons/:searchTerm" element={<PersonsSearchResult />} />
+          <Route path="/person/:id/CoActors" element={<CoActorsPage/>} />
+
 
           {/* USERS */}
           </Route>
