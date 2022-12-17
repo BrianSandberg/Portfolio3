@@ -46,7 +46,7 @@ function PersonPage() {
             <h1>Info about {personElements.name}</h1>
             </div>
             <p>json /* {personUrl}</p>
-            {/*loadTitlePage.toString*/}
+            {/*loadPersonPage.toString*/}
             {(status === "done") &&
             
             <table class="table table-hover">
@@ -65,7 +65,7 @@ function PersonPage() {
                 <td>{personElements.name}</td>
                 <td>{personElements.birthYear}</td>
                 <td>{personElements.deathYear}</td>
-                <td >{personElements.coActorsUrl}</td>
+                <td>{personElements.coActorsUrl}</td>
                 </tr>
             </tbody>
             </table>
