@@ -14,6 +14,8 @@ export default class LoginPage extends React.Component {
     }
   }
 
+  //const username = this.state.user.Username;
+
   handleUsernameChanged(event) {
     var user        = this.state.user;
     user.Username  = event.target.value;

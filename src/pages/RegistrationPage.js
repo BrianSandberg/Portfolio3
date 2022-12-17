@@ -36,7 +36,8 @@ export default class UserRegistrationPage extends React.Component {
     fetch("http://localhost:5001/api/users/register", {
       
       method: "POST",
-      
+      headers: {'Content-Type': 'application/json'},
+      //{"authentication": "token"},
       //Skal sende username og password med requesten
       body: JSON.stringify(requestBody)
     })
