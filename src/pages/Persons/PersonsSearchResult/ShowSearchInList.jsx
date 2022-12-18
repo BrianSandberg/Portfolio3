@@ -8,7 +8,6 @@ import PersonPage from "../PersonPage/PersonPage";
 function ShowSearchInList({ list }) {
 
     const [ShowSearchInListElements, setPersonsSearchResultElements] = useState([]);
-    console.log("!!!!!ShowSearchInList!!!!!!");
     const navigate = useNavigate();
 
 
@@ -21,16 +20,13 @@ function ShowSearchInList({ list }) {
                     <td>{element.name}</td>
                     <td>{element.birthYear}</td>
                     <td>{element.deathYear}</td>
-                    <td>{element.url}</td>
                 </tr>
-  
         )
     }
     else return <p>No List ???</p>
 
     function takeMeToThis(url) {
-        //navigate(url);
-        //<TitlePage></TitlePage>
+
         console.log(url.substring(url.lastIndexOf('/') + 1));
         const id = url.substring(url.lastIndexOf('/') + 1);
         const link = "/person/" + id;

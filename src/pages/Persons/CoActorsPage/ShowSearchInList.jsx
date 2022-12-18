@@ -9,11 +9,10 @@ import CoActorsPage from "../CoActorsPage/CoActorsPage";
 function ShowSearchInList({ list }) {
 
     const [ShowSearchInListElements, setPersonsSearchResultElements] = useState([]);
-    console.log("Test1");
+    
     const navigate = useNavigate();
 
-    
-    function takeMeToThis(url) {
+        function takeMeToThis(url) {
 
         console.log(url.substring(url.lastIndexOf('/') + 1));
         const id = url.substring(url.lastIndexOf('/') + 1);

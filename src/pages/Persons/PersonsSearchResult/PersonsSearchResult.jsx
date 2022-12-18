@@ -6,7 +6,6 @@ import ShowSearchInList from "./ShowSearchInList";
 
 function PersonsSearchResult() {
   const [PersonsSearchResultElements, setPersonsSearchResultElements] = useState([]);
-  console.log("!!!!!StartOfPersonsSearchResult!!!!!!");
 
 
   const {searchTerm} = useParams();
@@ -17,9 +16,6 @@ function PersonsSearchResult() {
 
 
   async function loadPersonPage() {
-
-   
-    console.log(searchTerm + "!!!!!PersonsSearchResult!!!!!!");
 
     const res = await fetch(apiBase + searchTerm);
     console.log("1321");
@@ -38,6 +34,7 @@ function PersonsSearchResult() {
   useEffect(() => { loadPersonPage() }, [searchTerm]);
   return (
     <Container>
+      <h1>Search result of "{searchTerm}"</h1>
 
       { }
       <table class="table table-hover">
@@ -47,14 +44,12 @@ function PersonsSearchResult() {
             <th scope="col">Name</th>
             <th scope="col">Birth Year</th>
             <th scope="col">Death Year</th>
-            <th scope="col">Url</th>
           </tr>
         </thead>
         <tbody>
           {<ShowSearchInList list={PersonsSearchResultElements.items} ></ShowSearchInList>}
         </tbody>
       </table>
-      <h1>PersonsSearchResult</h1>
 
 
       {/* {(status === "done") */} {(true === true) &&

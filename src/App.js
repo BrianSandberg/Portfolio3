@@ -117,7 +117,7 @@ export default function App() {
           <Route path="/searchResults/titles/:searchTerm" element={<TitlesSearchResult />} />
 
           {/* PERSONS */}
-          <Route path="/person/:id" element={<PersonPage/>} /> {/*What does this?*/}
+          <Route path="/person/:id" element={<PersonPage/>} /> 
           <Route path="/searchResults/persons/:searchTerm" element={<PersonsSearchResult />} />
           <Route path="/person/:id/CoActors" element={<CoActorsPage/>} />
 

@@ -47,9 +47,9 @@ function PersonPage() {
             <Container>
                 <h1>{counter++}</h1>
                 <div class="container-fluid">
-                    <h1>Info about {personElements.name}</h1>
+                    <h1>Info about "{personElements.name}"</h1>
                 </div>
-                <p>json /* {personUrl}</p>
+                {/*<p>json /* {personUrl}</p>*/}
                 {/*loadTitlePage.toString*/}
                 {(status === "done") &&
 
@@ -60,7 +60,6 @@ function PersonPage() {
                                 <th scope="col">Name</th>
                                 <th scope="col">Birth Year</th>
                                 <th scope="col">Death Year</th>
-                                <th scope="col">Co-Actors</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,12 +68,10 @@ function PersonPage() {
                                 <td>{personElements.name}</td>
                                 <td>{personElements.birthYear}</td>
                                 <td>{personElements.deathYear}</td>
-                                <td >{personElements.coActorsUrl}</td>
                             </tr>
                         </tbody>
                     </table>
                 }
-                <p>after</p>
             </Container>
             <Container>
                 <button onClick={ () => navigate("/person/" + id + "/CoActors")}>View Co-Acters</button>

@@ -40,12 +40,12 @@ function PersonPage() {
     useEffect(() => { loadPersonPage() }, []);
     return (
         <>
-            <h1>COACTERS</h1>
             <Container>
+                <h1>Info of Co-Actors:</h1>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Number</th>
+                            <th scope="col">Rank</th>
                             <th scope="col">Name</th>
                             <th scope="col">Frequency</th>
                         </tr>
@@ -55,9 +55,6 @@ function PersonPage() {
                     </tbody>
                 </table>
             </Container>
-
-
-
         </>
     );
     /*
