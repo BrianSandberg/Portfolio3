@@ -16,8 +16,7 @@ const Layout = () => {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <Header />
         <Box color={theme}>
-        <NavigationBar />
-        
+          <NavigationBar />
           <Outlet />
         </Box>
         <Footer />
