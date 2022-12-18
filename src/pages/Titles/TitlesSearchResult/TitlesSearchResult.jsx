@@ -9,19 +9,19 @@ function TitlesSearchResult() {
   const [TitlesSearchResultElements, setTitlesSearchResultElements] = useState([]);
   console.log("!!!!!StartOfTitlesSearchResult!!!!!!");
 
-  const {searchTerm} = useParams();
+  const { searchTerm } = useParams();
   //console.log(searchTerm);
-  
+
   //const [{searchTerm}, setSearchTerm] = useState("");
 
-  
+
   const testFetch = "http://localhost:5001/api/titles/tt0088634";
 
   // tt5787344
 
   const [status, setStatus] = useState("idle");
 
-  const apiBase = "http://localhost:5001/api/titles?search="
+  const apiBase = "http://localhost:5001/api/titles"
 
   function turnIntoTableRow(list) {
     if (list != null) {
@@ -43,24 +43,24 @@ function TitlesSearchResult() {
 
   async function loadTitlePage() {
 
-   
-      console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-      const res = await fetch(apiBase + searchTerm);
-      console.log("1321");
-      console.log(res);
-      const json = await res.json();
-      console.log("2");
-      console.log(json);
-      setTitlesSearchResultElements(json);
-      console.log("3");
-      setStatus("done")
-      console.log("4");
+    console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-      console.log("5");
-    
+    const res = await fetch(apiBase + "?page=1&pageSize=10" + "&search=" + searchTerm);
+    console.log("1321");
+    console.log(res);
+    const json = await res.json();
+    console.log("2");
+    console.log(json);
+    setTitlesSearchResultElements(json);
+    console.log("3");
+    setStatus("done")
+    console.log("4");
+
+    console.log("5");
+
   }
-  useEffect(() => { loadTitlePage()}, [searchTerm]);
+  useEffect(() => { loadTitlePage() }, [searchTerm]);
   return (
     <Container>
 
@@ -81,12 +81,12 @@ function TitlesSearchResult() {
       </table>
       <h1>TitlesSearchResult</h1>
       {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
-     
-   
+
+
       {/* {(status === "done") */} {(true === true) &&
 
-<h1>{TitlesSearchResultElements.originalTitle}</h1>
-      
+        <h1>{TitlesSearchResultElements.originalTitle}</h1>
+
 
 
         //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)

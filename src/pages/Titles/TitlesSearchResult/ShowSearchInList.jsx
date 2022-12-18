@@ -2,7 +2,6 @@ import { Component, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
-import TitlePage from "../TitlePage/TitlePage";
 
 function ShowSearchInList({ list }) {
 
@@ -14,14 +13,13 @@ function ShowSearchInList({ list }) {
     if (list != null) {
         let counter = 1;
         return list.map(element =>
-     
-                <tr role="button" onClick={() => takeMeToThis(element.url)}>
-                    <td>{counter++}</td>
-                    <td><img src={element.poster} alt="No Poster Available"></img></td>
-                    <td>{element.primaryTitle}</td>
-                    <td>{element.averageRating}</td>
-                </tr>
-  
+
+            <tr role="button" onClick={() => takeMeToThis(element.url)}>
+                <td>{counter++}</td>
+                <td><img src={element.poster} alt="No Poster Available"></img></td>
+                <td>{element.primaryTitle}</td>
+                <td>{element.averageRating}</td>
+            </tr>
         )
     }
     else return <p>No List ???</p>
@@ -36,4 +34,4 @@ function ShowSearchInList({ list }) {
     }
 
 };
-    export default ShowSearchInList;
+export default ShowSearchInList;
