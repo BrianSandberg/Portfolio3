@@ -8,8 +8,7 @@ import PersonPage from "../PersonPage/PersonPage";
 function ShowSearchInList({ list }) {
 
     const [ShowSearchInListElements, setPersonsSearchResultElements] = useState([]);
-    const navigate = useNavigate();
-
+    const navigate = useNavigate();    
 
     if (list != null) {
         let counter = 1;

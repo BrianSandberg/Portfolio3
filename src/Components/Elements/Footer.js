@@ -14,7 +14,7 @@ function Footer() {
     
 return (
 	<Box color={theme}>
-	<Container color={theme}>
+	<Container>
 		<Row>
 		<Column>
 			<Heading color={theme} >About Us</Heading>

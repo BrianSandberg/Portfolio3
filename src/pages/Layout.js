@@ -1,4 +1,4 @@
-import Box from "../Components/StyledComponents/Box";
+import {Box} from "../Components/StyledComponents/Box";
 import { Outlet, Link } from "react-router-dom";
 import React, {useState} from "react";
 import NavigationBar from "../Components/Navigation/NavigationBar";
@@ -15,8 +15,9 @@ const Layout = () => {
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <Header />
-        <NavigationBar />
         <Box color={theme}>
+        <NavigationBar />
+        
           <Outlet />
         </Box>
         <Footer />
