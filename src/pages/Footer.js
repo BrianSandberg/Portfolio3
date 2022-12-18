@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import ThemeContext from '../ThemeContext';
+import ThemeContext from '../Components/ThemeContext';
 import {
 Box,
 Container,
@@ -7,7 +7,7 @@ Row,
 Column,
 Link,
 Heading,
-} from "../StyledComponents/FooterStyles";
+} from "../Components/StyledComponents/FooterStyles";
 
 function Footer() {
 	const {theme} = useContext(ThemeContext)

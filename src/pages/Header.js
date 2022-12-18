@@ -1,8 +1,8 @@
 import React, { useContext} from 'react'
-import ThemeContext from '../ThemeContext'
-import Container from '../StyledComponents/Container'
-import Title from '../StyledComponents/Title'
-import DarkmodeButton from '../StyledComponents/DarkmodeButton'
+import ThemeContext from '../Components/ThemeContext'
+import Container from '../Components/StyledComponents/Container'
+import Title from '../Components/StyledComponents/Title'
+import DarkmodeButton from '../Components/StyledComponents/DarkmodeButton'
  
 
 function Header() {
