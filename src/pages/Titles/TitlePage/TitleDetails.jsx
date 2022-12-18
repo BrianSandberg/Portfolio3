@@ -27,14 +27,12 @@ function TitleDetails({ title, id }) {
                 <h2>Title Details</h2>
                 {isAdult(title.isAdult)}
                 <p><b>Type:</b> {title.type}</p>
-               {insertGenres(title.titleGenres)} 
+                {insertGenres(title.titleGenres)}
                 <p><b>Runtime in mins:</b> {title.runTimeMinutes}</p>
                 <p><b>Startyear:</b> {title.startYear}</p>
                 <p><b>Endyear:</b> {title.endYear}</p>
                 {insertCharacters()}
             </>
-
-
         )
 
     }
@@ -53,7 +51,7 @@ function TitleDetails({ title, id }) {
             list.map(element => s = s + element.genre + ", ")
         }
         console.log(s);
-        return <p><b>Genres:</b> {s.slice(0, -2)} <button onClick={() => navigate("/title/"+ id +"/similartitles")}>View Similar titles</button></p>;
+        return <p><b>Genres:</b> {s.slice(0, -2)} <button onClick={() => navigate("/title/" + id + "/similartitles")}>View Similar titles</button></p>;
     }
 
 
