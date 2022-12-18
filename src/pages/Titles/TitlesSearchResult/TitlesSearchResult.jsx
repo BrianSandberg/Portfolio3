@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 import ShowSearchInList from "./ShowSearchInList";
+import NavigationButton from "../../../Components/Buttons/NavigationButton";
 
 function TitlesSearchResult() {
 
@@ -10,18 +11,12 @@ function TitlesSearchResult() {
   console.log("!!!!!StartOfTitlesSearchResult!!!!!!");
 
   const { searchTerm } = useParams();
-  //console.log(searchTerm);
 
-  //const [{searchTerm}, setSearchTerm] = useState("");
-
-
-  const testFetch = "http://localhost:5001/api/titles/tt0088634";
-
-  // tt5787344
-
-  const [status, setStatus] = useState("idle");
+  const [pageNumber, setPageNumber] = useState(0);
 
   const apiBase = "http://localhost:5001/api/titles"
+
+  let pagesize = 10;
 
   function turnIntoTableRow(list) {
     if (list != null) {
@@ -46,7 +41,7 @@ function TitlesSearchResult() {
 
     console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-    const res = await fetch(apiBase + "?page=1&pageSize=10" + "&search=" + searchTerm);
+    const res = await fetch(apiBase + "?page="+ pageNumber + "&pageSize=" + pagesize + "&search=" + searchTerm);
     console.log("1321");
     console.log(res);
     const json = await res.json();
@@ -54,17 +49,16 @@ function TitlesSearchResult() {
     console.log(json);
     setTitlesSearchResultElements(json);
     console.log("3");
-    setStatus("done")
     console.log("4");
 
     console.log("5");
 
   }
-  useEffect(() => { loadTitlePage() }, [searchTerm]);
+  useEffect(() => { loadTitlePage() }, [searchTerm, pageNumber]);
   return (
     <Container>
 
-      { }
+<NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -79,20 +73,10 @@ function TitlesSearchResult() {
           {<ShowSearchInList list={TitlesSearchResultElements.items} ></ShowSearchInList>}
         </tbody>
       </table>
-      <h1>TitlesSearchResult</h1>
-      {/*TitlesSearchResultElements.items.map(title => <div>title</div>)*/}
+      
+      <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
 
-
-      {/* {(status === "done") */} {(true === true) &&
-
-        <h1>{TitlesSearchResultElements.originalTitle}</h1>
-
-
-
-        //titleElements.map(url => <div><Link to={titleUrl2} params={{ urlName: url }}>{url}</Link></div>)
-
-      }
-      <p>after</p>
+      {/* {(status === "done") } {(true === true) && */}
     </Container>
 
 

@@ -51,7 +51,7 @@ function PersonPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {insertRows(coActers)}
+                        {insertRows(coActers.items)}
                     </tbody>
                 </table>
             </Container>
@@ -67,13 +67,21 @@ function PersonPage() {
 */
 
     function insertRows(list) {
-        return (list.map(element =>
-            <tr role="button" onClick={() => navigate("/person/" + element.personId)}>
-                <td>{counter++}</td>
-                <td>{element.name}</td>
-                <td>{element.frequency}</td>
-            </tr>
-        ))
+        if (list != null) {
+            return (
+
+                list.map(element =>
+                    <tr role="button" onClick={() => navigate("/person/" + element.personId)}>
+                        <td>{counter++}</td>
+                        <td>{element.name}</td>
+                        <td>{element.frequency}</td>
+                    </tr>
+                )
+            )
+        } else {
+            return <p>Waiting for data</p>
+        }
+
     }
 
 };

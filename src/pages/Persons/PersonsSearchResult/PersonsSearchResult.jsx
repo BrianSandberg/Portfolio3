@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 import NavigationButton from "../../../Components/Buttons/NavigationButton";
-import PagingNavigate from "../../../Components/Navigation/PagingNavigate";
 import ShowSearchInList from "./ShowSearchInList";
 
 function PersonsSearchResult() {
@@ -47,7 +46,8 @@ function PersonsSearchResult() {
     <Container>
       <h1>Search result of "{searchTerm}"</h1>
 
-      { }
+      <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
+
       <table class="table table-hover">
         <thead>
           <tr>
