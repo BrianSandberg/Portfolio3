@@ -97,7 +97,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import TitlePage from "./pages/Titles/TitlePage/TitlePage";
 import PersonPage from "./pages/Persons/PersonPage/PersonPage";
 import CoActorsPage from "./pages/Persons/CoActorsPage/CoActorsPage";
-
+import SimilarTitlesPage from "./pages/Titles/SimilarTitlesPage.jsx/SimilarTitlesPage";
 
 
 export default function App() {
@@ -113,8 +113,8 @@ export default function App() {
 
           {/* TITLES */}
           <Route path="/title/:id" element={<TitlePage/>} />
+          <Route path="/title/:id/similartitles" element={<SimilarTitlesPage/>} />
           <Route path="/searchResults/titles/:searchTerm" element={<TitlesSearchResult />} />
-
 
           {/* PERSONS */}
           <Route path="/person/:id" element={<PersonPage/>} /> {/*What does this?*/}
