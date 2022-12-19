@@ -42,7 +42,7 @@ function PersonsSearchResult() {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Rank</th>
+            <th scope="col">Number</th>
             <th scope="col">Name</th>
             <th scope="col">Birth Year</th>
             <th scope="col">Death Year</th>
@@ -54,13 +54,18 @@ function PersonsSearchResult() {
       </table>
 
       <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
-
-      {console.log("pageNumber")}
-      {console.log(pageNumber)}
+      {checkPageNumber(pageNumber, PersonsSearchResultElements.pages)}
 
       {/* {(status === "done") } {(true === true) && */}
     </Container>
 
   );
+
+  function checkPageNumber(pageNumber, pages) {
+    if (pageNumber >= pages) {
+      setPageNumber(pages - 1)
+    }
+  }
+
 };
 export default PersonsSearchResult;

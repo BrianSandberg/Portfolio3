@@ -3,11 +3,10 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
-function NavigationButton({ pageNumber, setPageNumber }) {
+function NavigationButton({ pageNumber, setPageNumber}) {
 
- 
+
     console.log("!!!!!NavigationButton!!!!!!");
-
     return (
         showButtons()
     )
@@ -46,6 +45,7 @@ function NavigationButton({ pageNumber, setPageNumber }) {
     function nextClicked(pageNumber) {
         console.log("clicked");
         setPageNumber(pageNumber + 1)
+
     }
 
     function firstClicked() {

@@ -9,7 +9,9 @@ function ShowSearchInList({ list }) {
 
     const [ShowSearchInListElements, setPersonsSearchResultElements] = useState([]);
     const navigate = useNavigate();
+    console.log("listlistlistlistlistlist");
 
+console.log(list);
     if (list != null) {
         let counter = 1;
         return list.map(element =>
