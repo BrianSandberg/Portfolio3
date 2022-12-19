@@ -50,14 +50,14 @@ function PersonPage() {
         <>
             <Container>
                 <h1>{counter++}</h1>
-                <div class="container-fluid">
+                <div className="container-fluid">
                     <h1>Info about "{personElements.name}"</h1>
                 </div>
                 {/*<p>json /* {personUrl}</p>*/}
                 {/*loadTitlePage.toString*/}
                 {(status === "done") &&
 
-                    <table class="table table-hover">
+                    <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

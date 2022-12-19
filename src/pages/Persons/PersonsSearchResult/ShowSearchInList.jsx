@@ -22,7 +22,7 @@ function ShowSearchInList({ list }) {
                 </tr>
         )
     }
-    else return <p>No List ???</p>
+    else return <tr><td>No List ???</td></tr>
 
     function takeMeToThis(url) {
 

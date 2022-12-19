@@ -59,7 +59,7 @@ function TitleDetails({ title, id }) {
         return (
             <>
                 <p><b>Characters in the title:</b></p>
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Number</th>
@@ -86,7 +86,7 @@ function TitleDetails({ title, id }) {
                 </tr>
             )
         }
-        else return "characterList is loading/not working :)"
+        else return <tr><td>No List ???</td></tr>
     }
 
 

@@ -54,10 +54,10 @@ const NavigationBar = () => {
      {/* setSearchTermfunc(document.getElementById("SearchField").value)*/}
       <input id="SearchField" type="text" placeholder="Search here" />
       <input type="radio" name="SearchType" id="SearchTitles" value="Titles" onClick={() => setSearchTypefunc("titles") } />
-      <label for="SearchTitles">Titles</label>
+      <label htmlFor="SearchTitles">Titles</label>
       <input type="radio" name="SearchType" id="SearchPersons" value="Persons" onClick={() => setSearchTypefunc("persons")} />
-      <label for="SearchPersons">Persons</label>
-      <button on onClick={searchClick}>{  /*<Link to={link} params={{searchTerm, searchType}}>search</Link>*/}Search</button>
+      <label htmlFor="SearchPersons">Persons</label>
+      <button onClick={searchClick}>{  /*<Link to={link} params={{searchTerm, searchType}}>search</Link>*/}Search</button>
       <>{searchType}</>
     
       

@@ -42,9 +42,9 @@ function SimilarTitlesPage() {
   }
   useEffect(() => { loadTitlePage() }, []);
   return (
-    <Container class="whole">
+    <Container className="whole">
       <h1>Similar Titles</h1>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th scope="col">Number</th>
@@ -70,7 +70,7 @@ function SimilarTitlesPage() {
         </tr>
       ))
     }
-    else return <p>waiting</p>
+    else return <tr><td>No List ???</td></tr>
   }
 };
 

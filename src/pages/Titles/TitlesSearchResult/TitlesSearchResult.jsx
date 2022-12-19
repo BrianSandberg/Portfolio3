@@ -59,7 +59,7 @@ function TitlesSearchResult() {
     <Container>
 
 <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th scope="col">Rank</th>
