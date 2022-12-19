@@ -99,6 +99,8 @@ import SimilarTitlesPage from "./pages/Titles/SimilarTitlesPage.jsx/SimilarTitle
 import Login from "./pages/Users/LoginPage";
 import Userpage from "./pages/Users/Userpage";
 import UserRegistrationPage from "./pages/Users/RegistrationPage";
+import DeleteUser from "./pages/Users/DeleteUser";
+import ChangePassword from "./pages/Users/ChangePassword";
 
 
 export default function App() {
@@ -129,6 +131,8 @@ kan få sat det nogenlunde op, så de fleste url's virker */}
           <Route path='/users/:username' element={<Userpage/>} />
           <Route path="/users/register" element={<UserRegistrationPage/>} />
           <Route path="/users/login" element={<Login/>} />
+          <Route path="/users/deleteuser" element={<DeleteUser/>} />
+          <Route path="/users/updatepassword" element={<ChangePassword/>} />
           </Route>
       </Routes>
     </BrowserRouter>

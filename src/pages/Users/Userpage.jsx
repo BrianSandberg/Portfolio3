@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import DeleteUserButton from '../../Components/Buttons/DeleteUserButton';
+import ChangePasswordButton from '../../Components/Buttons/ChangePasswordButton';
+import ChangePassword from './ChangePassword';
 
 const Userpage = () => {
   //Model of user
@@ -13,7 +16,12 @@ const Userpage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       console.log(username);
-      const response = await fetch('http://localhost:5001/api/users/' + username);
+      const response = await fetch('http://localhost:5001/api/users/' + username,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,}
+    });
       const data = await response.json();
       console.log(data);
       setUser(data);
@@ -56,6 +64,8 @@ const Userpage = () => {
       ) : (
         <p>Loading user information...</p>
       )}
+      {ChangePasswordButton()}
+      {DeleteUserButton()}
     </div>
   );
 };

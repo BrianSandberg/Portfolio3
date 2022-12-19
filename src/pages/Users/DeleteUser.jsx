@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ChangePassword = () => {
-  //const [username, setUsername] = useState('');
+
+
+//Man kan godt gemme username i en pseudo global variable, så længe man exporter og importer
+//Username skal hentes fra alle pages, da det bliver brugt til at lave request på API fra user side
+const DeleteUser = () => {
+  //const [token, setToken] = useState(null);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [newpassword, setNewPassword] = useState('');
   const [verifypassword, setVerifyPassword] = useState('');
+
+  //const username = this.state.user.Username;
+
+
 
   const ApiBase = 'http://localhost:5001/api/users/';
   const user = localStorage.getItem('username');
   const token = localStorage.getItem('token');
 
+  //const login = UserActions();
+  //login(this.state.user.Username, this.state.user.Password);
+  //setError('apiError', {message: error})
+
+
   // Send the POST request to the API endpoint
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (newpassword == verifypassword){
-    fetch(ApiBase + user + '/updatepassword/' + password + '/' + newpassword, {
-      method: 'PUT',
+    if (password == verifypassword){
+    fetch(ApiBase + user + '/delete/' + password, {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
@@ -24,12 +37,10 @@ const ChangePassword = () => {
     })
       .then(response => {
         if (response.ok) {
-          console.log(ApiBase + user + '/updatepassword/' + password + '/' + newpassword);
-          return response.json();
-
+          
         }
       })
-      .then(data => window.location.href=`http://localhost:3000/users/${user}`)
+      .then(data => window.location.href="http://localhost:3000/")
       .catch(error => {
         console.error(error);
       })
@@ -42,10 +53,12 @@ const ChangePassword = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-
+        <p>
+          Delete you user?
+        </p>
       <br />
       <label>
-        Old password:
+        Confirm with password:
         <input
           type="password"
           value={password}
@@ -54,16 +67,7 @@ const ChangePassword = () => {
       </label>
       <br />
       <label>
-        New password:
-        <input
-          type="password"
-          value={newpassword}
-          onChange={(event) => setNewPassword(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Verify new password:
+        Verify password:
         <input
           type="password"
           value={verifypassword}
@@ -71,9 +75,9 @@ const ChangePassword = () => {
         />
       </label>
       <br />
-      <button type="submit">Change password</button>
+      <button type="submit">Delete User</button>
     </form>
   );
 };
 
-export default ChangePassword;
+export default DeleteUser;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Userpage from './Userpage';
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
 const Login = () => {
@@ -26,6 +27,8 @@ const Login = () => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
+        window.location.href=`http://localhost:3000/users/${data.username}`;
+        
       })
       .catch(error => {
         // Handle any errors that may have occurred
@@ -54,7 +57,7 @@ const Login = () => {
         />
       </label>
       <br />
-      <button type="submit" onClick={window.location.href}>Log In</button>
+      <button type="submit">Log In</button>
     </form>
   );
 };

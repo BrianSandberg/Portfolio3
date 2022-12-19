@@ -6,6 +6,8 @@ import DarkmodeButton from '../Components/StyledComponents/DarkmodeButton'
 import LoginButton from '../Components/Buttons/LoginButton'
 import logout from '../Components/Buttons/LogoutButton'
 import RegisterButton from '../Components/Buttons/RegistrationButton'
+import Userpage from './Users/Userpage'
+import UserPageButton from '../Components/Buttons/UserPageButton'
  
 
 function Header() {
@@ -27,6 +29,7 @@ function Header() {
                 {!isLoggedIn && <LoginButton />}
                 {!isLoggedIn && <RegisterButton />}
                 {isLoggedIn && logout()}
+                {isLoggedIn && <UserPageButton />}
                 <DarkmodeButton color={theme} onClick={handleThemeChange}>Darkmode</DarkmodeButton>
                 </Container>
             </>
