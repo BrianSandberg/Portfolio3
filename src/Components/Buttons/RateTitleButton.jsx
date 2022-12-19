@@ -8,6 +8,10 @@ function Rating() {
   const username = localStorage.getItem('username');
   const token = localStorage.getItem('token');
 
+  const currentUrl = window.location.href;
+  const urlParts = currentUrl.split('/');
+  const lastUrlPart = urlParts[urlParts.length - 1];
+
   const testTitle = "tt0052520";
 
   const handleChange = (event) => {
@@ -17,7 +21,7 @@ function Rating() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(localStorage.getItem('username'));
-    fetch(apiBase + username + '/' + testTitle + '/' + value, {
+    fetch(apiBase + username + '/' + lastUrlPart + '/' + value, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +29,9 @@ function Rating() {
       },
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {console.log(data)
+        window.location.reload();
+      })
       .catch(error => console.error(error));
   }
 
@@ -40,14 +46,16 @@ function Rating() {
         console.log(data.userRatings);
 
         data.userRatings.map((ratings) => {
-          console.log(testTitle);
+          console.log(lastUrlPart);
           //const tempString = bookmark.title_ID;
 
-          if (ratings.title_ID == testTitle) {
+          if (ratings.title_ID == lastUrlPart) {
+            //apiData.setState(ratings.rating);
             setApiData(ratings.rating);
             console.log("true");
+            console.log(lastUrlPart)
             //console.log(`Bearer ${token}`);
-
+            //window.location.reload();
           }
           else {
             setApiData("You have not yet given this title a rating!");

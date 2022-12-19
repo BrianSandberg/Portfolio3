@@ -5,6 +5,7 @@ import { Outlet, Link, json, useParams } from "react-router-dom";
 import TitleDetails from "./TitleDetails";
 
 import BookmarkTitleButton from "../../../Components/Buttons/BookmarkTitleButton";
+import Rating from "../../../Components/Buttons/RateTitleButton";
 
 function TitlePage() {
     const [titleElements, setTitleElements] = useState([]);
@@ -61,6 +62,7 @@ function TitlePage() {
                                 <th>Rating: </th>
                                 <th>Number of voters: </th>
                                 <th>{BookmarkTitleButton()} </th>
+                                <th>{Rating()}</th>
                             </tr>
                         </thead>
                         <tbody>

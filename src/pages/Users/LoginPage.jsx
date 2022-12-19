@@ -54,7 +54,7 @@ const Login = () => {
         />
       </label>
       <br />
-      <button type="submit" onClick={window.location.href}>Log In</button>
+      <button type="submit">Log In</button>
     </form>
   );
 };
