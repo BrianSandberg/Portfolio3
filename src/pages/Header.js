@@ -25,7 +25,7 @@ function Header() {
             setIsVisible(true);
         }
     }
-    //const isLoggedIn = localStorage.getItem('token') !== null && localStorage.getItem('username') !== null;
+    const isLoggedIn = localStorage.getItem('token') !== null && localStorage.getItem('username') !== null;
     
     //Sry hvis jeg fucker headeren up med mine "buttons" xD
         return (
@@ -33,10 +33,10 @@ function Header() {
                 <Container color={theme}>
                 <Title color={theme}>Movie Database Application</Title>
                 {/*Skal vel have lavet "My Site" om til et link til ens userpage? */}
-                {!isVisible && <LoginButton onClick={handleButtonChange}/>}
-                {!isVisible && <RegisterButton />}
-                {isVisible && <Logout onClick={handleButtonChange}/>}
-                {isVisible && <UserPageButton />}
+                {!isLoggedIn && <LoginButton onClick={handleButtonChange}/>}
+                {!isLoggedIn && <RegisterButton />}
+                {isLoggedIn && <Logout onClick={handleButtonChange}/>}
+                {isLoggedIn && <UserPageButton />}
                 <DarkmodeButton color={theme} onClick={handleThemeChange}>Darkmode</DarkmodeButton>
                 </Container>
             </>
