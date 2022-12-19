@@ -58,6 +58,7 @@ function PersonPage() {
                                 <tr><td><p><b>Birth Year: </b>{personElements.birthYear}</p></td></tr>
                                 <tr><td><p><b>Death Year: </b>{personElements.deathYear}</p></td></tr>
                                 <tr><td><p><b>Co-Actors: </b><button onClick={() => navigate("/person/" + id + "/CoActors")}>View Co-Acters</button></p></td></tr>
+                                <tr><td>{BookmarkPersonButton()}</td></tr>
                             </tbody>
                         </table>
                     </Container>
