@@ -26,7 +26,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     const navigate = useNavigate();
 
     const navi = () => {
-      navigate('user/login');
+      navigate('/');
     }
 
   const handleSubmit = async (event) => {
@@ -97,7 +97,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
             onChange={(event) => setVerifyPassword(event.target.value)}
             />
         </label>
-        <button type="submit" onClick={navigate('/')}>Sign up</button>
+        <button type="submit">Sign up</button>
       </form>
     );
   };

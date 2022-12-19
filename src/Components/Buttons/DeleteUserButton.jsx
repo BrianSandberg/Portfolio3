@@ -1,11 +1,14 @@
 import React from 'react';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
+
 
 function DeleteUserButton(){
-    const url = 'http://localhost:3000/user/deleteuser'
+    const url = '/user/deleteuser'
+    const navigate = useNavigate();
 
     return(
         <div>
-            <button onClick={() => window.location.href = url}>
+            <button onClick={() => navigate(url)}>
                 Delete Profile
             </button>
         </div>

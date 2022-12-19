@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-
+import { Container } from 'react-bootstrap';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
 //Man kan godt gemme username i en pseudo global variable, så længe man exporter og importer
 //Username skal hentes fra alle pages, da det bliver brugt til at lave request på API fra user side
@@ -11,7 +11,7 @@ const DeleteUser = () => {
   const [verifypassword, setVerifyPassword] = useState('');
 
   //const username = this.state.user.Username;
-
+  const navigate = useNavigate();
 
 
   const ApiBase = 'http://localhost:5001/api/users/';
@@ -25,10 +25,10 @@ const DeleteUser = () => {
 
   // Send the POST request to the API endpoint
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    //event.preventDefault();
 
-    if (password == verifypassword){
-    fetch(ApiBase + user + '/delete/' + password, {
+
+    fetch(ApiBase + user + '/delete', {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -36,47 +36,40 @@ const DeleteUser = () => {
       }
     })
       .then(response => {
-        if (response.ok) {
-          
-        }
+        console.log(user);
       })
-      .then(data => window.location.href="http://localhost:3000/")
+      .then(data => navigate('/'))
       .catch(error => {
         console.error(error);
       })
-    }
-    else {
-      return ('Passwords do not match!');
-    }
   };
 
 
   return (
-    <form onSubmit={handleSubmit}>
-        <p>
-          Delete you user?
-        </p>
-      <br />
-      <label>
-        Confirm with password:
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Verify password:
-        <input
-          type="password"
-          value={verifypassword}
-          onChange={(event) => setVerifyPassword(event.target.value)}
-        />
-      </label>
-      <br />
-      <button type="submit">Delete User</button>
-    </form>
+    <Container>
+      <p>Delete your profile?</p>
+      <br></br>
+      <button
+
+        //Removes the users jwt token and their username, from the localstorage
+        onClick={() => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('username');
+          navigate("/");
+          handleSubmit();
+        }}
+      >
+        Yes    </button>
+      <button
+
+        //Removes the users jwt token and their username, from the localstorage
+        onClick={() => {
+          navigate("/user/:username");
+        }}
+      >
+        No    </button>
+    </Container>
+
   );
 };
 
