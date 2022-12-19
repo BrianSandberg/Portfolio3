@@ -29,7 +29,7 @@ const ChangePassword = () => {
 
         }
       })
-      .then(data => console.log(data))
+      .then(data => window.location.href="http://localhost:3000/users/:username")
       .catch(error => {
         console.error(error);
       })

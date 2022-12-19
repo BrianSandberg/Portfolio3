@@ -40,7 +40,7 @@ const DeleteUser = () => {
           
         }
       })
-      .then(data => console.log(data))
+      .then(data => window.location.href="http://localhost:3000/")
       .catch(error => {
         console.error(error);
       })
