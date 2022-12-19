@@ -3,8 +3,9 @@ import ThemeContext from '../Components/ThemeContext'
 import Container from '../Components/StyledComponents/Container'
 import Title from '../Components/StyledComponents/Title'
 import DarkmodeButton from '../Components/StyledComponents/DarkmodeButton'
-import Login from '../Components/Buttons/LoginButton'
+import LoginButton from '../Components/Buttons/LoginButton'
 import logout from '../Components/Buttons/LogoutButton'
+import RegisterButton from '../Components/Buttons/RegistrationButton'
  
 
 function Header() {
@@ -19,7 +20,8 @@ function Header() {
             <>
                 <Container color={theme}>
                 <Title color={theme}>My Site</Title>
-                {Login()}
+                {LoginButton()}
+                {RegisterButton()}
                 {logout()}
                 <DarkmodeButton color={theme} onClick={handleThemeChange}>Darkmode</DarkmodeButton>
                 </Container>

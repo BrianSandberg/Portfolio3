@@ -96,6 +96,9 @@ import TitlePage from "./pages/Titles/TitlePage/TitlePage";
 import PersonPage from "./pages/Persons/PersonPage/PersonPage";
 import CoActorsPage from "./pages/Persons/CoActorsPage/CoActorsPage";
 import SimilarTitlesPage from "./pages/Titles/SimilarTitlesPage.jsx/SimilarTitlesPage";
+import Login from "./pages/Users/LoginPage";
+import Userpage from "./pages/Users/Userpage";
+import UserRegistrationPage from "./pages/Users/RegistrationPage";
 
 
 export default function App() {
@@ -121,6 +124,8 @@ export default function App() {
 
 
           {/* USERS */}
+          <Route path="/users/register" element={<UserRegistrationPage/>} />
+          <Route path="/users/login" element={<Login/>} />
           </Route>
       </Routes>
     </BrowserRouter>
