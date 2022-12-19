@@ -126,7 +126,7 @@ export default function App() {
 {/*Har muligvis ikke 100p styr på det her routing, men prøver at kigge lidt på det, og se om jeg ikke 
 kan få sat det nogenlunde op, så de fleste url's virker */}
           {/* USERS */}
-          <Route path="/users/:username" element={<Userpage/>} />
+          <Route path='/users/:username' element={<Userpage/>} />
           <Route path="/users/register" element={<UserRegistrationPage/>} />
           <Route path="/users/login" element={<Login/>} />
           </Route>
