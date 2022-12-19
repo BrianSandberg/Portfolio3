@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useSyncExternalStore } from 'react';
 
 function BookmarkTitleButton(status, setStatus) {
   const [objectExists, setObjectExists] = useState();
@@ -25,21 +25,32 @@ function BookmarkTitleButton(status, setStatus) {
         const data = await response.json();
         console.log(data.bookmarkedTitles);
 
-        data.bookmarkedTitles.map((bookmarktitle) => {
-          console.log(lastUrlPart);
-
-          if (bookmarktitle.title_ID == lastUrlPart) {
+        for (let i = 0; i < data.bookmarkedTitles.length; i++) {
+          if (data.bookmarkedTitles[i].title_ID == lastUrlPart) {
             setObjectExists(true);
-            console.log("true");
-            console.log(`Bearer ${token}`);
-          }
-          else {
+            console.log(" 31 true");
+            break;
+          } else {
             setObjectExists(false);
-            console.log("false");
+            console.log(" 35 false");
           }
-
         }
-        )
+
+        // data.bookmarkedTitles.map((bookmark) => {
+        //   console.log(lastUrlPart);
+
+        //   if (bookmark.title_ID == lastUrlPart) {
+        //     setObjectExists(true);
+        //     console.log(" 33 true");
+        //     console.log(`Bearer ${token}`);
+
+        //   }
+        //   else {
+        //     setObjectExists(false);
+        //     console.log(" 38 false");
+        //   }
+
+        // })
       }
     };
     fetchObject();
@@ -79,7 +90,7 @@ function BookmarkTitleButton(status, setStatus) {
 
   return (
     <button
-      onClick={handleclick} disable={loading}
+      onClick={handleclick}
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}
@@ -88,6 +99,6 @@ function BookmarkTitleButton(status, setStatus) {
     >
       Bookmark Title    </button>
   );
-    
+
 }
 export default BookmarkTitleButton;
