@@ -18,14 +18,14 @@ return (
 		<Row>
 		<Column>
 			<Heading color={theme} >About Us</Heading>
-			<Link color={theme} href="#">Goal</Link>
-			<Link color={theme} href="#">Vision</Link>
+			<Link color={theme} >Goal</Link>
+			<Link color={theme} >Vision</Link>
 		</Column>
 		<Column>
 			<Heading color={theme}>Contact Us</Heading>
-			<Link color={theme} href="#">Oliver</Link>
-			<Link color={theme} href="#">Mads</Link>
-			<Link color={theme} href="#">Steen</Link>
+			<Link color={theme} >Oliver</Link>
+			<Link color={theme} >Mads</Link>
+			<Link color={theme} >Steen</Link>
 		</Column>
 		<Column>
 			<Heading color={theme}>Social Media</Heading>
