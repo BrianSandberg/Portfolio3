@@ -20,6 +20,8 @@ function Header() {
             <>
                 <Container color={theme}>
                 <Title color={theme}>My Site</Title>
+                {/*Skal vel have lavet "My Site" om til et link til ens userpage? */}
+                {/*Der skal conditional rendering på de her 3 components */}
                 {LoginButton()}
                 {RegisterButton()}
                 {logout()}

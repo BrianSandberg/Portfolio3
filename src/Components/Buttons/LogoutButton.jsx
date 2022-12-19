@@ -1,14 +1,18 @@
 function logout() {
 
-    return (
-      <button
-  
+  return (
+    <button
+
       //Removes the users jwt token and their username, from the localstorage
-        onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('username'); }}
-      >
-        Logout    </button>
-    );
-  }
-  
-  
-  export default logout;
+      onClick={() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        window.location.href="http://localhost:3000/"
+      }}
+    >
+      Logout    </button>
+  );
+}
+
+
+export default logout;
