@@ -52,8 +52,8 @@ function TitlePage() {
     //på siden xD Men så vidt jeg ved, og hvad jeg kan læse mig frem til burde det virke sådan her
     useEffect(() => { loadTitlePage() }, [status]);
     return (
-        <div>
-            <BookmarkTitleButton />
+        
+            
         <Container className="whole">
             <Container className="MainPartWithExtraInfo">
                 <h1>{titleElements.primaryTitle}</h1>
@@ -98,7 +98,7 @@ function TitlePage() {
                 {<TitleDetails title={titleElements} id={id}></TitleDetails>}
             </Container>
         </Container>
-        </div>
+    
     );
 };
 

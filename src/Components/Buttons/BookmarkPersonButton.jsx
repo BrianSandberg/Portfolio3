@@ -28,10 +28,10 @@ function BookmarkPersonButton(status, setStatus) {
       if (response.status === 200) {
         const data = await response.json();
 
-        data.bookmarkedActors.map((bookmark) => {
+        data.bookmarkedActors.map((bookmarkperson) => {
 
           //2 lighedstegn for at sammenligne data - Brug 3 for at sammenligne data og type
-          if (bookmark.person_ID == lastUrlPart) {
+          if (bookmarkperson.person_ID == lastUrlPart) {
             setObjectExists(true);
             console.log("true");
           }

@@ -25,10 +25,10 @@ function BookmarkTitleButton(status, setStatus) {
         const data = await response.json();
         console.log(data.bookmarkedTitles);
 
-        data.bookmarkedTitles.map((bookmark) => {
+        data.bookmarkedTitles.map((bookmarktitle) => {
           console.log(lastUrlPart);
 
-          if (bookmark.title_ID == lastUrlPart) {
+          if (bookmarktitle.title_ID == lastUrlPart) {
             setObjectExists(true);
             console.log("true");
             console.log(`Bearer ${token}`);
@@ -79,7 +79,7 @@ function BookmarkTitleButton(status, setStatus) {
 
   return (
     <button
-      onClick={handleclick} 
+      onClick={handleclick} disable={loading}
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}
