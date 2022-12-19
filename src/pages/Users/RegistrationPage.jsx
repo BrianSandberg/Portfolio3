@@ -38,7 +38,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
       username: username,
       password: password
     };
-    console.log(requestBody);
+    //console.log(requestBody);
     // Submit the form values to the server
     //Needs the chrome extension called "allow-control-allow-origin"
     fetch("http://localhost:5001/api/users/register", {
@@ -51,9 +51,10 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     })
       .then(response => {
         console.log(response.headers);
+        //navigate("/")
         // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
-      .then(data => navigate("http://localhost:3000/user/login"))
+      .then(data => {})
       .catch(error => {
         // Handle any errors that occur
         console.log(error.message);

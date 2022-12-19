@@ -10,7 +10,9 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-
+const navi = () => {
+  navigate('/');
+}
   // Send the POST request to the API endpoint
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -32,7 +34,7 @@ const Login = () => {
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
 
-        navigate('http://localhost:5001/api/');
+        
         
       })
       .catch(error => {
