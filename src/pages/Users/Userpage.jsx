@@ -64,12 +64,12 @@ const Userpage = () => {
             <thead>
               <tr>
                 <th scope="col">Number</th>
-                <th scope="col">Title ID</th>
+                <th scope="col">person ID</th>
                 <th scope="col">Time Stamp</th>
               </tr>
             </thead>
             <tbody>
-           {insertTitleRows(userBookmarkedTitles)}
+           {insertPersonRows(userBookmarkedActors)}
             </tbody>
           </table>
         </>
@@ -104,11 +104,11 @@ const Userpage = () => {
     if (list != null) {
       return (list.map(element =>
         <tr role="button" onClick={() => navigate("/person/" + element.title_ID)}>
-          {console.log("list.title_ID")}
+          {console.log("list.person_ID")}
 
           {console.log(list.title_ID)}
           <td>{counter++}</td>
-          <td>{element.title_ID}</td>
+          <td>{element.person_ID}</td>
           <td>{element.timestamp}</td>
 
         </tr>
