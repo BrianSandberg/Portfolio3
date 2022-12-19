@@ -31,7 +31,7 @@ const Userpage = () => {
       
     };
     fetchUser();
-  });
+  }, []);
 
   //console.log("here2",user.bookmarkedTitles);
   const titles = userBookmarkedTitles.map((titles) => <li>Title: {titles.title_ID} - Gemt: {titles.timestamp}</li>);
