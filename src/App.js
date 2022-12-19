@@ -111,9 +111,6 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
           <Route index element={<Landing />} />
 
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-
           {/* TITLES */}
           <Route path="/title/:id" element={<TitlePage/>} />
           <Route path="/title/:id/similartitles" element={<SimilarTitlesPage/>} />
