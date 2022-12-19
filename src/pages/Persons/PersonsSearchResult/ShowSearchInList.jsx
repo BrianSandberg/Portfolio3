@@ -8,18 +8,18 @@ import PersonPage from "../PersonPage/PersonPage";
 function ShowSearchInList({ list }) {
 
     const [ShowSearchInListElements, setPersonsSearchResultElements] = useState([]);
-    const navigate = useNavigate();    
+    const navigate = useNavigate();
 
     if (list != null) {
         let counter = 1;
         return list.map(element =>
-     
-                <tr role="button" onClick={() => takeMeToThis(element.url)}>
-                    <td>{counter++}</td>
-                    <td>{element.name}</td>
-                    <td>{element.birthYear}</td>
-                    <td>{element.deathYear}</td>
-                </tr>
+
+            <tr role="button" onClick={() => takeMeToThis(element.url)}>
+                <td>{counter++}</td>
+                <td>{element.name}</td>
+                <td>{element.birthYear}</td>
+                <td>{element.deathYear}</td>
+            </tr>
         )
     }
     else return <tr><td>No List ???</td></tr>
@@ -33,4 +33,4 @@ function ShowSearchInList({ list }) {
     }
 
 };
-    export default ShowSearchInList;
+export default ShowSearchInList;

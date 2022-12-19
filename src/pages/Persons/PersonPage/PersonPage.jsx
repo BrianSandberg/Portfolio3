@@ -26,19 +26,14 @@ function PersonPage() {
 
             <h1>{counter++}</h1>
             const res = await fetch(personUrl);
-            console.log("1");
             console.log(res);
             const json = await res.json();
-            console.log("2");
             console.log(json);
             setPersonElements(json);
-            console.log("3");
             setStatus("done")
-            console.log("4");
 
         } catch (error) {
             setStatus("error")
-            console.log("5");
 
             console.log(error);
         }
