@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const ChangePassword = () => {
   //const [username, setUsername] = useState('');
@@ -29,7 +29,7 @@ const ChangePassword = () => {
 
         }
       })
-      .then(data => window.location.href="http://localhost:3000/users/:username")
+      .then(data => window.location.href=`http://localhost:3000/users/${user}`)
       .catch(error => {
         console.error(error);
       })

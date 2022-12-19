@@ -45,6 +45,7 @@ export default class UserRegistrationPage extends React.Component {
         console.log(response.headers);
         // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
+      .then(data => window.location.href="http://localhost:3000/users/login")
       .catch(error => {
         // Handle any errors that occur
         console.log(error.message);
