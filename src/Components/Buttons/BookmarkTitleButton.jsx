@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function BookmarkTitleButton() {
-  const [objectExists, setObjectExists] = useState(false);
+  const [objectExists, setObjectExists] = useState(true);
   const [loading, setLoading] = useState(false);
   //const [title, setTitle] = useState("");
 
@@ -44,7 +44,7 @@ function BookmarkTitleButton() {
     };
     fetchObject();
     //[] Forhindre programmet i at render hele tiden.. Idk how
-  }, /*[]*/);
+  }, []);
 
   const handleclick = () => {
     fetch(apiBase + username + '/bookmarktitle/' + lastUrlPart, {
@@ -58,23 +58,26 @@ function BookmarkTitleButton() {
       .then((response) => {
         if (response.ok) {
           console.log(token);
+
           //return response.json();
         }
         //throw new Error('Error updating');
       })
       .then((data) => {
         setLoading(false);
-        window.location.reload();
+        //window.location.reload();
+        setObjectExists(true);
+
       })
       .catch((error) => {
-        console.error(error);
+        console.error(localStorage.getItem('username'));
         setLoading(false);
       });
   };
 
   return (
     <button
-      onClick={handleclick} disabled={loading}
+      onClick={handleclick} 
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}
@@ -83,5 +86,6 @@ function BookmarkTitleButton() {
     >
       Bookmark Title    </button>
   );
+    
 }
 export default BookmarkTitleButton;

@@ -46,7 +46,7 @@ function BookmarkPersonButton() {
     };
     fetchObject();
     //[] Forhindre programmet i at render hele tiden.. Idk how
-  }, /*[]*/);
+  }, []);
 
   const handleclick = () => {
     fetch(apiBase + username + '/bookmarkperson/' + lastUrlPart, {
@@ -64,7 +64,7 @@ function BookmarkPersonButton() {
       })
       .then((data) => {
         setLoading(false);
-        window.location.reload();
+        //window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -74,7 +74,7 @@ function BookmarkPersonButton() {
 
   return (
     <button
-      onClick={handleclick} disabled={loading}
+      onClick={handleclick}
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}

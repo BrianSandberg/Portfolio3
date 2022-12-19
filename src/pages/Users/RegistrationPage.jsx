@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
-export default class UserRegistrationPage extends React.Component {
+
+/*export default class UserRegistrationPage extends React.Component {
   /*  state = {
       username: "",
       password: "",
       passwordVerification: ""
-    };*/
+    };
   constructor(props) {
     super(props);
 
@@ -16,19 +18,25 @@ export default class UserRegistrationPage extends React.Component {
         PasswordVerification: props.PasswordVerification
       }
     }
-  }
+  }*/
+  const RegistrationPage = () =>{
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [verifypassword, setVerifyPassword] = useState('');
+    const navigate = useNavigate();
 
-  handleSubmit = event => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Validate password
-    if (this.state.password !== this.state.passwordVerification) {
+    if (password !== verifypassword) {
       // Return an error when password and verifypassword does not match
-      return;
+      return ('Passwords does not match');
     }
     const requestBody = {
       //Request body skal hedde {"username": "userinput", "password":"passwordinput"}
-      username: this.state.username,
-      password: this.state.password
+      username: username,
+      password: password
     };
     console.log(requestBody);
     // Submit the form values to the server
@@ -45,32 +53,27 @@ export default class UserRegistrationPage extends React.Component {
         console.log(response.headers);
         // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
-      .then(data => window.location.href="http://localhost:3000/user/login")
+      .then(data => navigate("http://localhost:3000/user/login"))
       .catch(error => {
         // Handle any errors that occur
         console.log(error.message);
       });
 
-    console.log(this.state.username);
-    console.log(JSON.stringify(requestBody));
   };
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
 
-  render() {
-    const { username, password, passwordVerification } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit}>
+
+  return(
+    
+      <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input
             type="text"
             name="username"
             value={username}
-            onChange={this.handleChange}
-          />
+            onChange={(event) => setUsername(event.target.value)}
+            />
         </label>
         <label>
           Password:
@@ -78,20 +81,21 @@ export default class UserRegistrationPage extends React.Component {
             type="password"
             name="password"
             value={password}
-            onChange={this.handleChange}
-          />
+            onChange={(event) => setPassword(event.target.value)}
+            />
         </label>
         <label>
           Verify Password:
           <input
             type="password"
             name="passwordVerification"
-            value={passwordVerification}
-            onChange={this.handleChange}
-          />
+            value={verifypassword}
+            onChange={(event) => setVerifyPassword(event.target.value)}
+            />
         </label>
         <button type="submit">Sign up</button>
       </form>
     );
-  }
-}
+  };
+
+export default RegistrationPage;
