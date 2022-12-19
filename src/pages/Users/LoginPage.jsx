@@ -30,10 +30,13 @@ const Login = (isVisible, setIsVisible) => {
     })
       .then(response => {
         if (response.ok) {
+          console.log("1")
           return response.json();
         }
       })
       .then(data => {
+        console.log("2")
+
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
@@ -43,6 +46,8 @@ const Login = (isVisible, setIsVisible) => {
 
       })
       .catch(error => {
+        console.log("3")
+
         // Handle any errors that may have occurred
         console.error(error.message);
       })

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import ThemeContext from '../Components/ThemeContext'
 import Container from '../Components/StyledComponents/Container'
 import Title from '../Components/StyledComponents/Title'
@@ -9,14 +9,14 @@ import RegisterButton from '../Components/Buttons/RegistrationButton'
 import Userpage from './Users/Userpage'
 import UserPageButton from '../Components/Buttons/UserPageButton'
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
-import { useRecoilTransactionObserver_UNSTABLE } from 'recoil'
+import Login from './Users/LoginPage';
 
 
 
 function Header() {
 
     const { theme, setTheme } = useContext(ThemeContext)
-    const [isVisible, setIsVisible] = useState("");
+    const [isVisible, setIsVisible] = useState("loggedin");
 
     const navigate = useNavigate();
 
@@ -27,7 +27,6 @@ function Header() {
     //Sry hvis jeg fucker headeren up med mine "buttons" xD
     return (
         <>
-            {checkState()}
             <Container color={theme}>
                 <Title color={theme}>Movie Database Application</Title>
                 {/*Skal vel have lavet "My Site" om til et link til ens userpage? */}
@@ -72,6 +71,7 @@ function Header() {
                         onClick={() => {
                             localStorage.removeItem('token');
                             localStorage.removeItem('username');
+                            setIsVisible("loggedout");
                             navigate("/");
                         }}
                     >
@@ -106,7 +106,8 @@ function Header() {
         if (isVisible == "loggedout") {
             return (
                 <div>
-                    <button onClick={() => { navigate("user/login") }}>
+                    <button onClick={() => { navigate("user/login", {isVisible: {isVisible}, setIsVisible: {setIsVisible}});
+                }}>
                         Sign in!
                     </button>
                 </div>
