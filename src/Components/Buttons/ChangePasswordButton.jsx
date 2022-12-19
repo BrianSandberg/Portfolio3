@@ -1,11 +1,11 @@
 import React from 'react';
 
 function ChangePasswordButton(){
-    const loginurl = 'http://localhost:3000/users/updatepassword';
+    const url = 'http://localhost:3000/user/updatepassword';
 
     return(
         <div>
-            <button onClick={() => window.location.href = loginurl}>
+            <button onClick={() => window.location.href = url}>
                 Change Password
             </button>
         </div>

@@ -64,6 +64,7 @@ function PersonPage() {
                                 <th scope="col">Name</th>
                                 <th scope="col">Birth Year</th>
                                 <th scope="col">Death Year</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -72,6 +73,7 @@ function PersonPage() {
                                 <td>{personElements.name}</td>
                                 <td>{personElements.birthYear}</td>
                                 <td>{personElements.deathYear}</td>
+                                <td>{BookmarkPersonButton()}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -27,7 +27,7 @@ const Login = () => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
-        window.location.href=`http://localhost:3000/users/${data.username}`;
+        window.location.href='http://localhost:3000/user/:username';
         
       })
       .catch(error => {

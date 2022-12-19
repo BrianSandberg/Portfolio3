@@ -1,11 +1,11 @@
 import React from 'react';
 
 function UserPageButton(){
-    const loginurl = 'http://localhost:3000/users/'+localStorage.getItem('username');
+    const url = 'http://localhost:3000/user/'+localStorage.getItem('username');
 
     return(
         <div>
-            <button onClick={() => window.location.href = loginurl}>
+            <button onClick={() => window.location.href = url}>
                 Your Page
             </button>
         </div>

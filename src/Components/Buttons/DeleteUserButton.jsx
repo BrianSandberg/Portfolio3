@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DeleteUserButton(){
-    const url = 'http://localhost:3000/users/deleteuser'
+    const url = 'http://localhost:3000/user/deleteuser'
 
     return(
         <div>

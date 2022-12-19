@@ -1,11 +1,11 @@
 import React from 'react';
 
 function RegisterButton(){
-    const loginurl = 'http://localhost:3000/users/register'
+    const url = 'http://localhost:3000/user/register'
 
     return(
         <div>
-            <button onClick={() => window.location.href = loginurl}>
+            <button onClick={() => window.location.href = url}>
                 Register
             </button>
         </div>

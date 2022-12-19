@@ -12,7 +12,7 @@ function Rating() {
   const urlParts = currentUrl.split('/');
   const lastUrlPart = urlParts[urlParts.length - 1];
 
-  const testTitle = "tt0052520";
+  //const testTitle = "tt0052520";
 
   const handleChange = (event) => {
     setValue(event.target.value);

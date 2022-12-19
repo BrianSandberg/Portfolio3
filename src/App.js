@@ -128,11 +128,11 @@ export default function App() {
 {/*Har muligvis ikke 100p styr på det her routing, men prøver at kigge lidt på det, og se om jeg ikke 
 kan få sat det nogenlunde op, så de fleste url's virker */}
           {/* USERS */}
-          <Route path='/users/:username' element={<Userpage/>} />
-          <Route path="/users/register" element={<UserRegistrationPage/>} />
-          <Route path="/users/login" element={<Login/>} />
-          <Route path="/users/deleteuser" element={<DeleteUser/>} />
-          <Route path="/users/updatepassword" element={<ChangePassword/>} />
+          <Route path='/user/:username' element={<Userpage/>} />
+          <Route path="/user/register" element={<UserRegistrationPage/>} />
+          <Route path="/user/login" element={<Login/>} />
+          <Route path="/user/deleteuser" element={<DeleteUser/>} />
+          <Route path="/user/updatepassword" element={<ChangePassword/>} />
           </Route>
       </Routes>
     </BrowserRouter>
