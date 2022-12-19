@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Userpage from './Userpage';
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 import logout from '../../Components/Buttons/LogoutButton';
+import LoginButton from '../../Components/Buttons/LoginButton';
+import Header from '../Header';
 
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
-const Login = () => {
+const Login = (isVisible, setIsVisible) => {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -34,9 +36,9 @@ const navi = () => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
+        setIsVisible("loggedin");
+        console.log(isVisible);
         navi();
-
-        
         
       })
       .catch(error => {

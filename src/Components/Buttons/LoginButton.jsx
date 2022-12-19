@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext, useState} from 'react'
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
 
 function LoginButton(){
-    //const[status, setStatus] = (true);
+    const[showButton, setShowButton] = useState(true);
     const loginurl = 'user/login';
     const navigate = useNavigate();
+    //setIsVisible(true);
 
     return(
         <div>
-            <button onClick={() => navigate(loginurl)}>
-                Login
+            <button onClick={() => {navigate(loginurl)}}>
+                Sign in!
             </button>
         </div>
     );
