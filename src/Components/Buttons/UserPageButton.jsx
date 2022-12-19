@@ -1,11 +1,14 @@
 import React from 'react';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
+
 
 function UserPageButton(){
-    const url = 'http://localhost:3000/user/'+localStorage.getItem('username');
+    const url = 'user/'+localStorage.getItem('username');
+    const navigate = useNavigate();
 
     return(
         <div>
-            <button onClick={() => window.location.href =  url}>
+            <button onClick={() => navigate(url)}>
                 Your Page
             </button>
         </div>

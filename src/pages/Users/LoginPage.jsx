@@ -33,6 +33,7 @@ const navi = () => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
+        navi();
 
         
         

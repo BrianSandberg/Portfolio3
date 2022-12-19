@@ -25,6 +25,9 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     const [verifypassword, setVerifyPassword] = useState('');
     const navigate = useNavigate();
 
+    const navi = () => {
+      navigate('user/login');
+    }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,7 +57,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
         //navigate("/")
         // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
-      .then(data => {})
+      .then(data => {navi()})
       .catch(error => {
         // Handle any errors that occur
         console.log(error.message);
@@ -94,7 +97,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
             onChange={(event) => setVerifyPassword(event.target.value)}
             />
         </label>
-        <button type="submit">Sign up</button>
+        <button type="submit" onClick={navigate('/')}>Sign up</button>
       </form>
     );
   };

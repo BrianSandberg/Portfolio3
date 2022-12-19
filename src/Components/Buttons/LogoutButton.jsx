@@ -1,4 +1,10 @@
-function logout() {
+import React from 'react';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
+
+
+function Logout() {
+
+  const navigate = useNavigate();
 
   return (
     <button
@@ -7,7 +13,7 @@ function logout() {
       onClick={() => {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
-        window.location.href="http://localhost:3000/"
+        navigate("/");
       }}
     >
       Logout    </button>
@@ -15,4 +21,4 @@ function logout() {
 }
 
 
-export default logout;
+export default Logout;
