@@ -24,7 +24,7 @@ function Header() {
         return (
             <>
                 <Container color={theme}>
-                <Title color={theme}>My Site</Title>
+                <Title color={theme}>Movie Database Application</Title>
                 {/*Skal vel have lavet "My Site" om til et link til ens userpage? */}
                 {!isLoggedIn && <LoginButton />}
                 {!isLoggedIn && <RegisterButton />}
