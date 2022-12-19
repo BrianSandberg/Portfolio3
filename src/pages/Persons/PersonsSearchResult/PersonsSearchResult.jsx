@@ -16,35 +16,26 @@ function PersonsSearchResult() {
   const apiBase = "http://localhost:5001/api/persons"
 
   let pagesize = 10;
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-  let whichButtonIsClicked = "";
 
   async function loadPersonPage() {
-    console.log("THIS IS THE SEARCH TERM WATCH THIS NOW!!!!");
     console.log({ searchTerm });
 
 
-    const res = await fetch(apiBase + "?page="+ pageNumber + "&pageSize=" + pagesize + "&search=" + searchTerm);
-    console.log("1321");
+    const res = await fetch(apiBase + "?page=" + pageNumber + "&pageSize=" + pagesize + "&search=" + searchTerm);
     console.log(res);
     const json = await res.json();
-    console.log("2");
     console.log(json);
     setPersonsSearchResultElements(json);
-    console.log("3");
     console.log(PersonsSearchResultElements.first);
-    console.log("4");
 
     console.log(PersonsSearchResultElements.first);
-    console.log("5");
 
   }
-  
+
   useEffect(() => { loadPersonPage() }, [searchTerm, pageNumber]);
   return (
     <Container>
-      <h1>Search result of "{searchTerm}"</h1>
+      <h1>Search results of "{searchTerm}"</h1>
 
       <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
 
@@ -63,7 +54,7 @@ function PersonsSearchResult() {
       </table>
 
       <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
-      
+
       {console.log("pageNumber")}
       {console.log(pageNumber)}
 
