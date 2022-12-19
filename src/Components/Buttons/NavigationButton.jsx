@@ -3,11 +3,10 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
-function NavigationButton({ pageNumber, setPageNumber }) {
+function NavigationButton({ pageNumber, setPageNumber}) {
 
- 
+
     console.log("!!!!!NavigationButton!!!!!!");
-
     return (
         showButtons()
     )
@@ -15,16 +14,16 @@ function NavigationButton({ pageNumber, setPageNumber }) {
     function showButtons() {
         return (
             <nav>
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" onClick={() => firstClicked()}>First</a>
+                <ul className="pagination justify-content-center">
+                    <li className="page-item">
+                        <a className="page-link" onClick={() => firstClicked()}>First</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" onClick={() => prevClicked(pageNumber)}>Previous</a>
+                    <li className="page-item">
+                        <a className="page-link" onClick={() => prevClicked(pageNumber)}>Previous</a>
                     </li>
-                    <li class="page-item"><a class="page-link">{pageNumber}</a></li>
-                    <li class="page-item">
-                        <a class="page-link" onClick={() => nextClicked(pageNumber)}>Next</a>
+                    <li className="page-item"><a className="page-link">{pageNumber}</a></li>
+                    <li className="page-item">
+                        <a className="page-link" onClick={() => nextClicked(pageNumber)}>Next</a>
                     </li>
                 </ul>
             </nav>
@@ -46,6 +45,7 @@ function NavigationButton({ pageNumber, setPageNumber }) {
     function nextClicked(pageNumber) {
         console.log("clicked");
         setPageNumber(pageNumber + 1)
+
     }
 
     function firstClicked() {

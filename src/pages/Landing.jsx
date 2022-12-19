@@ -26,12 +26,9 @@ function Landing() {
     return (
         <Container>
 
-            <h1>LANDING PAGE!</h1>
-            
-            {(status === "done") &&
+<h1>Wlcome to our movie database application</h1>
+<h2>Made by Mads Jönsson, Steen Leu Christensen and Oliver Werner </h2>
 
-                urls.map(url => <div><Link to="/contact" params= {{urlName: url}}>{url}</Link></div>)
-            }
         </Container>
 
 

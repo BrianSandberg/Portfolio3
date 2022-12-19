@@ -42,7 +42,7 @@ function PersonPage() {
         <>
             <Container>
                 <h1>Info of Co-Actors:</h1>
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">Rank</th>
@@ -79,7 +79,7 @@ function PersonPage() {
                 )
             )
         } else {
-            return <p>Waiting for data</p>
+            return <tr><td>No List ???</td></tr>
         }
 
     }

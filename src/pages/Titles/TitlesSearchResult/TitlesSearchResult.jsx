@@ -34,14 +34,12 @@ function TitlesSearchResult() {
     else return <p>yoyoyo</p>
   }
 
-
-
   async function loadTitlePage() {
 
 
     console.log(searchTerm + "!!!!!TitlesSearchResult!!!!!!");
 
-    const res = await fetch(apiBase + "?page="+ pageNumber + "&pageSize=" + pagesize + "&search=" + searchTerm);
+    const res = await fetch(apiBase + "?page=" + pageNumber + "&pageSize=" + pagesize + "&search=" + searchTerm);
     console.log("1321");
     console.log(res);
     const json = await res.json();
@@ -49,17 +47,14 @@ function TitlesSearchResult() {
     console.log(json);
     setTitlesSearchResultElements(json);
     console.log("3");
-    console.log("4");
-
-    console.log("5");
-
   }
+
   useEffect(() => { loadTitlePage() }, [searchTerm, pageNumber]);
   return (
     <Container>
 
-<NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
-      <table class="table table-hover">
+      <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
+      <table className="table table-hover">
         <thead>
           <tr>
             <th scope="col">Rank</th>
@@ -73,15 +68,18 @@ function TitlesSearchResult() {
           {<ShowSearchInList list={TitlesSearchResultElements.items} ></ShowSearchInList>}
         </tbody>
       </table>
-      
-      <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
 
+      <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber}></NavigationButton>
+      {checkPageNumber(pageNumber, TitlesSearchResultElements.pages)}
       {/* {(status === "done") } {(true === true) && */}
     </Container>
-
-
-
-
   );
+
+  function checkPageNumber(pageNumber, pages) {
+    if (pageNumber >= pages) {
+      setPageNumber(pages - 1)
+    }
+  }
+
 };
 export default TitlesSearchResult;

@@ -52,11 +52,11 @@ function TitlePage() {
     //på siden xD Men så vidt jeg ved, og hvad jeg kan læse mig frem til burde det virke sådan her
     useEffect(() => { loadTitlePage() }, []);
     return (
-        <Container class="whole">
-            <Container class="MainPartWithExtraInfo">
+        <Container className="whole">
+            <Container className="MainPartWithExtraInfo">
                 <h1>{titleElements.primaryTitle}</h1>
-                <Container class="MainPart">
-                    <table class="table table-borderless">
+                <Container className="MainPart">
+                    <table className="table table-borderless">
                         <thead>
                             <tr>
                                 <th>Rating: </th>
@@ -66,16 +66,18 @@ function TitlePage() {
                             </tr>
                         </thead>
                         <tbody>
-                            <td><img src={starPicUrl} class="img-thumbnail" width="45" height="45" alt="No star Available..."></img> {titleElements.averageRating}/10</td>
-                            <td>{titleElements.numVotes}</td>
+                            <tr>
+                                <td><img src={starPicUrl} className="img-thumbnail" width="45" height="45" alt="No star Available..."></img> {titleElements.averageRating}/10</td>
+                                <td>{titleElements.numVotes}</td>
+                            </tr>
                         </tbody>
                     </table>
-                    <Container class="PosterImage">
+                    <Container className="PosterImage">
                         <img src={titleElements.poster} width="250" height="350" alt="No Poster Available"></img>
                     </Container>
                 </Container>
 
-                <Container class="ExtraInfo">
+                <Container className="ExtraInfo">
                     <table>
                         <thead>
                             <tr>
@@ -83,23 +85,17 @@ function TitlePage() {
                             </tr>
                         </thead>
                         <tbody>
-                            <td>  <p>{titleElements.plot}</p></td>
+                            <tr>
+                                <td>  <p>{titleElements.plot}</p></td>
+                            </tr>
                         </tbody>
                     </table>
                 </Container>
             </Container>
-
             <Container>
-           
                 {<TitleDetails title={titleElements} id={id}></TitleDetails>}
-        
-
             </Container>
-
         </Container>
-
-
-
     );
 };
 
