@@ -37,7 +37,7 @@ const Login = (isVisible, setIsVisible) => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
-        setIsVisible("loggedin");
+        //setIsVisible("loggedin");
         console.log(isVisible);
         navi();
 
