@@ -44,7 +44,7 @@ function PersonsSearchResult() {
   useEffect(() => { loadPersonPage() }, [searchTerm, pageNumber]);
   return (
     <Container>
-      <h1>Search result of "{searchTerm}"</h1>
+      <h1>Search results of "{searchTerm}"</h1>
 
       <NavigationButton pageNumber={pageNumber} setPageNumber={setPageNumber} ></NavigationButton>
 
