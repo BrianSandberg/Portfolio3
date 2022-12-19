@@ -23,24 +23,23 @@ function BookmarkPersonButton(status, setStatus) {
   useEffect(() => {
     const fetchObject = async () => {
       const response = await fetch(apiBase + username);
-      console.log(response.status)
 
       if (response.status === 200) {
         const data = await response.json();
+        console.log(data);
 
-        data.bookmarkedActors.map((bookmarkperson) => {
 
-          //2 lighedstegn for at sammenligne data - Brug 3 for at sammenligne data og type
-          if (bookmarkperson.person_ID == lastUrlPart) {
+        for (let i = 0; i < data.bookmarkedActors.length; i++) {
+          if (data.bookmarkedActors[i].person_ID == lastUrlPart) {
             setObjectExists(true);
-            console.log("true");
-          }
-          else {
+            console.log(data);
+            console.log(" 31 true");
+            break;
+          } else {
             setObjectExists(false);
-            console.log("false");
+            console.log(" 35 false");
           }
         }
-        )
       }
 
     };
@@ -59,7 +58,12 @@ function BookmarkPersonButton(status, setStatus) {
     })
       .then((response) => {
         setStatus("working");
-        setObjectExists(true);
+        if(objectExists){
+        setObjectExists(false);
+        }
+        else{
+          setObjectExists(true);
+        }
         //throw new Error('Error updating');
       })
       .then((data) => {

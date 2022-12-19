@@ -72,7 +72,11 @@ function BookmarkTitleButton(status, setStatus) {
         setStatus("working");
         console.log("statusstatusstatusstatusstatus");
         console.log(status);
-        setObjectExists(true);
+        if(objectExists){
+        setObjectExists(false);}
+        else{
+          setObjectExists(true);
+        }
 
         //return response.json();
 
