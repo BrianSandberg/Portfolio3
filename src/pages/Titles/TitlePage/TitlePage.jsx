@@ -50,7 +50,7 @@ function TitlePage() {
 
     //Ved ikke om jeg har implementeret BookmarkTitleButton korrekt, da jeg ikke kan få nogle resultater
     //på siden xD Men så vidt jeg ved, og hvad jeg kan læse mig frem til burde det virke sådan her
-    useEffect(() => { loadTitlePage() }, []);
+    useEffect(() => { loadTitlePage() }, [status]);
     return (
         <Container className="whole">
             <Container className="MainPartWithExtraInfo">
@@ -61,7 +61,7 @@ function TitlePage() {
                             <tr>
                                 <th>Rating: </th>
                                 <th>Number of voters: </th>
-                                <th>{BookmarkTitleButton()} </th>
+                                <th>{BookmarkTitleButton(status, setStatus)} </th>
                                 <th>{Rating()}</th>
                             </tr>
                         </thead>

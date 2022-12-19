@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-function BookmarkTitleButton() {
-  const [objectExists, setObjectExists] = useState(false);
+function BookmarkTitleButton(status, setStatus) {
+  const [objectExists, setObjectExists] = useState();
   const [loading, setLoading] = useState(false);
   //const [title, setTitle] = useState("");
 
@@ -18,6 +18,8 @@ function BookmarkTitleButton() {
     const fetchObject = async () => {
       const response = await fetch(apiBase + username);
       console.log(response.status)
+      console.log("response.statusresponse.statusresponse.statusresponse.statusresponse.statusresponse.status")
+
 
       if (response.status === 200) {
         const data = await response.json();
@@ -30,7 +32,6 @@ function BookmarkTitleButton() {
             setObjectExists(true);
             console.log("true");
             console.log(`Bearer ${token}`);
-
           }
           else {
             setObjectExists(false);
@@ -40,11 +41,10 @@ function BookmarkTitleButton() {
         }
         )
       }
-
     };
     fetchObject();
     //[] Forhindre programmet i at render hele tiden.. Idk how
-  }, /*[]*/);
+  }, [status]);
 
   const handleclick = () => {
     fetch(apiBase + username + '/bookmarktitle/' + lastUrlPart, {
@@ -56,18 +56,23 @@ function BookmarkTitleButton() {
       //body
     })
       .then((response) => {
-        if (response.ok) {
-          console.log(token);
-          //return response.json();
-        }
+
+        console.log(token);
+        setStatus("working");
+        console.log("statusstatusstatusstatusstatus");
+        console.log(status);
+        setObjectExists(true);
+
+        //return response.json();
+
         //throw new Error('Error updating');
       })
       .then((data) => {
         setLoading(false);
-        window.location.reload();
+        //  window.location.reload();
       })
       .catch((error) => {
-        console.error(error);
+        console.error(localStorage.getItem('username'));
         setLoading(false);
       });
   };
@@ -78,7 +83,7 @@ function BookmarkTitleButton() {
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}
-      
+
 
     >
       Bookmark Title    </button>
