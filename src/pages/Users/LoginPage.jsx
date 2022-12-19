@@ -13,9 +13,9 @@ const Login = (isVisible, setIsVisible) => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-const navi = () => {
-  navigate('/');
-}
+  const navi = () => {
+    navigate('/');
+  }
   // Send the POST request to the API endpoint
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -25,13 +25,14 @@ const navi = () => {
       body: JSON.stringify({ username: username, password: password }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,      }
+        'Authorization': `Bearer ${token}`,
+      }
     })
       .then(response => {
         if (response.ok) {
           return response.json();
         }
-    })
+      })
       .then(data => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
@@ -39,7 +40,7 @@ const navi = () => {
         setIsVisible("loggedin");
         console.log(isVisible);
         navi();
-        
+
       })
       .catch(error => {
         // Handle any errors that may have occurred
