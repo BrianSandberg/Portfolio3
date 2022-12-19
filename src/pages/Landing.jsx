@@ -25,10 +25,8 @@ function Landing() {
     useEffect(() => { loadLanding() }, []);
     return (
         <Container>
-
-<h1>Wlcome to our movie database application</h1>
+<h1>Welcome to our movie database application</h1>
 <h2>Made by Mads Jönsson, Steen Leu Christensen and Oliver Werner </h2>
-
         </Container>
 
 
@@ -39,24 +37,3 @@ function Landing() {
 
 
 export default Landing;
-
-{/* <input type="text" value={this.state.customer.firstName} /> 
-       
-        <br />
-        <label>
-            Last Name:
-        </label>
-        <input type="text" value={this.state.customer.lastName} />
-        <br />
-        <label>
-            Status:
-        </label>
-        <select value={this.state.customer.status}>
-            <option value="PENDING">
-                Pending
-            </option>
-            <option value="APPROVED">
-                Approved
-            </option>
-        </select>
-        */}
