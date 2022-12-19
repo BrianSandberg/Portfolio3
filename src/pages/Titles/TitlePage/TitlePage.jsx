@@ -92,18 +92,10 @@ function TitlePage() {
                     </table>
                 </Container>
             </Container>
-
             <Container>
-
                 {<TitleDetails title={titleElements} id={id}></TitleDetails>}
-
-
             </Container>
-
         </Container>
-
-
-
     );
 };
 
