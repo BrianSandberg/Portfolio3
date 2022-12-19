@@ -5,7 +5,7 @@ function UserPageButton(){
 
     return(
         <div>
-            <button onClick={() => window.location.href = url}>
+            <button onClick={() => window.location.href =  url}>
                 Your Page
             </button>
         </div>

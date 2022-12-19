@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Userpage from './Userpage';
+import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
+
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
 const Login = () => {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
+const navi = () => {
+  navigate('/');
+}
   // Send the POST request to the API endpoint
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -27,7 +33,8 @@ const Login = () => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
-        window.location.href='http://localhost:3000/user/:username';
+
+        
         
       })
       .catch(error => {

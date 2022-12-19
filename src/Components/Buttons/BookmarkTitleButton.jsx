@@ -79,7 +79,7 @@ function BookmarkTitleButton(status, setStatus) {
 
   return (
     <button
-      onClick={handleclick} disabled={loading}
+      onClick={handleclick} 
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}
@@ -88,5 +88,6 @@ function BookmarkTitleButton(status, setStatus) {
     >
       Bookmark Title    </button>
   );
+    
 }
 export default BookmarkTitleButton;

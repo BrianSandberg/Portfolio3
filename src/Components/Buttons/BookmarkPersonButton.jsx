@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 
 //Skal lave to forskellige buttons, så der både er til actors og titles
-function BookmarkPersonButton() {
-  const [objectExists, setObjectExists] = useState(false);
+function BookmarkPersonButton(status, setStatus) {
+  const [objectExists, setObjectExists] = useState();
   const [loading, setLoading] = useState(false);
   //const [bookmarkList, setbookmarkList] = useState([]);
 
@@ -46,7 +46,7 @@ function BookmarkPersonButton() {
     };
     fetchObject();
     //[] Forhindre programmet i at render hele tiden.. Idk how
-  }, /*[]*/);
+  }, [status]);
 
   const handleclick = () => {
     fetch(apiBase + username + '/bookmarkperson/' + lastUrlPart, {
@@ -58,13 +58,13 @@ function BookmarkPersonButton() {
       //body
     })
       .then((response) => {
-        if (response.ok) {
-        }
+        setStatus("working");
+        setObjectExists(true);
         //throw new Error('Error updating');
       })
       .then((data) => {
         setLoading(false);
-        window.location.reload();
+        //window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -74,7 +74,7 @@ function BookmarkPersonButton() {
 
   return (
     <button
-      onClick={handleclick} disabled={loading}
+      onClick={handleclick}
       style={{
         backgroundColor: objectExists ? 'blue' : 'white',
       }}

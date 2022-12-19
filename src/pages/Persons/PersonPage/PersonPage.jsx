@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
+import BookmarkTitleButton from "../../../Components/Buttons/BookmarkTitleButton";
 import BookmarkPersonButton from "../../../Components/Buttons/BookmarkPersonButton";
 
 function PersonPage() {
@@ -38,33 +39,36 @@ function PersonPage() {
             console.log(error);
         }
     }
-    useEffect(() => { loadPersonPage() }, []);
+    useEffect(() => { loadPersonPage() }, [status]);
     //Ved ikke hvor jeg skal smide BookmarkPersonButton ind, men det burde tage 2 sek, hvis den virker 
     //i title
     return (
-        <>
+        <div>
             <Container>
                 <div className="container-fluid">
                     <h1>Info about "{personElements.name}"</h1>
                 </div>
+                <Container>{BookmarkPersonButton(status, setStatus)}</Container>
                 {/*<p>json /* {personUrl}</p>*/}
                 {/*loadTitlePage.toString*/}
                 {(status === "done") &&
 
                     <Container className="PersonInfo">
+                       
                         <table>
                             <tbody>
                                 <tr><td><p><b>Navn: </b>{personElements.name}</p></td></tr>
                                 <tr><td><p><b>Birth Year: </b>{personElements.birthYear}</p></td></tr>
                                 <tr><td><p><b>Death Year: </b>{personElements.deathYear}</p></td></tr>
                                 <tr><td><p><b>Co-Actors: </b><button onClick={() => navigate("/person/" + id + "/CoActors")}>View Co-Acters</button></p></td></tr>
-                                <tr><td>{BookmarkPersonButton()}</td></tr>
+                                
                             </tbody>
                         </table>
+
                     </Container>
                 }
             </Container>
-        </>
+        </div>
     );
 
 
