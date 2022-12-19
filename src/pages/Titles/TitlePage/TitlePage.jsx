@@ -4,6 +4,8 @@ import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 import TitleDetails from "./TitleDetails";
 
+import BookmarkTitleButton from "../../../Components/Buttons/BookmarkTitleButton";
+
 function TitlePage() {
     const [titleElements, setTitleElements] = useState([]);
     const api = "http://localhost:5001/api/titles/"
@@ -44,6 +46,9 @@ function TitlePage() {
             console.log(error);
         }
     }
+
+    //Ved ikke om jeg har implementeret BookmarkTitleButton korrekt, da jeg ikke kan få nogle resultater
+    //på siden xD Men så vidt jeg ved, og hvad jeg kan læse mig frem til burde det virke sådan her
     useEffect(() => { loadTitlePage() }, []);
     return (
         <Container class="whole">
@@ -55,7 +60,7 @@ function TitlePage() {
                             <tr>
                                 <th>Rating: </th>
                                 <th>Number of voters: </th>
-                                <th>PUT BOOKMARK BUTTOM HERE </th>
+                                <th>{BookmarkTitleButton()} </th>
                             </tr>
                         </thead>
                         <tbody>

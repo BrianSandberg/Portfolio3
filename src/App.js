@@ -92,8 +92,6 @@ import Landing from "./pages/Landing";
 import TitlesSearchResult from "./pages/Titles/TitlesSearchResult/TitlesSearchResult";
 import PersonsSearchResult from "./pages/Persons/PersonsSearchResult/PersonsSearchResult";
 
-import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
 import TitlePage from "./pages/Titles/TitlePage/TitlePage";
 import PersonPage from "./pages/Persons/PersonPage/PersonPage";
 import CoActorsPage from "./pages/Persons/CoActorsPage/CoActorsPage";

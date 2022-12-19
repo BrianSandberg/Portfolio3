@@ -3,6 +3,8 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
+import BookmarkPersonButton from "../../../Components/Buttons/BookmarkPersonButton";
+
 function PersonPage() {
     const [personElements, setPersonElements] = useState([]);
     const api = "http://localhost:5001/api/persons/"
@@ -42,6 +44,8 @@ function PersonPage() {
         }
     }
     useEffect(() => { loadPersonPage() }, []);
+    //Ved ikke hvor jeg skal smide BookmarkPersonButton ind, men det burde tage 2 sek, hvis den virker 
+    //i title
     return (
         <>
             <Container>
