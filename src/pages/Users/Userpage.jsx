@@ -89,7 +89,6 @@ const Userpage = () => {
       ) : (
         <p>Loading user information...</p>
       )}
-      {ChangePasswordButton()}
       {DeleteUserButton()}
     </div>
   );
@@ -116,10 +115,10 @@ const Userpage = () => {
     let counter = 1
     if (list != null) {
       return (list.map(element =>
-        <tr role="button" onClick={() => navigate("/person/" + element.title_ID)}>
+        <tr role="button" onClick={() => navigate("/person/" + element.person_ID)}>
           {console.log("list.person_ID")}
 
-          {console.log(list.title_ID)}
+          {console.log(list.person_ID)}
           <td>{counter++}</td>
           <td>{element.person_ID}</td>
           <td>{element.timestamp}</td>
