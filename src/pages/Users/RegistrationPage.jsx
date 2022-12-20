@@ -88,7 +88,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
           Password:
           <input
             type="password"
-            pattern="(?=.*/d.{8,}"
+            pattern="(?=.*/d).{8,}"
             name="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -99,7 +99,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
           Verify Password:
           <input
             type="password"
-            pattern="(?=.*/d.{8,}"
+            pattern="(?=.*/d).{8,}"
             name="passwordVerification"
             value={verifypassword}
             onChange={(event) => setVerifyPassword(event.target.value)}
