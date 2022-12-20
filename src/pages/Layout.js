@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import NavigationBar from "../Components/Navigation/NavigationBar";
 import Footer from "../Components/Footer";
 import ThemeContext from "../Components/ThemeContext";
-import Header from "./Header";
+import Header from "../Components/Header";
 
 
 const Layout = () => {

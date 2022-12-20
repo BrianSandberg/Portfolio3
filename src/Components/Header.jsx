@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
-import ThemeContext from '../Components/ThemeContext'
-import Container from '../Components/StyledComponents/Container'
-import Title from '../Components/StyledComponents/Title'
-import DarkmodeButton from '../Components/StyledComponents/DarkmodeButton'
+import ThemeContext from './ThemeContext'
+import Container from './StyledComponents/Container'
+import Title from './StyledComponents/Title'
+import DarkmodeButton from './StyledComponents/DarkmodeButton'
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
-import Login from './Users/LoginPage';
-import RegistrationPage from './Users/RegistrationPage'
+import Login from '../pages/Users/LoginPage';
+import RegistrationPage from '../pages/Users/RegistrationPage'
 
 
 
