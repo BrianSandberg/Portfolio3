@@ -124,10 +124,7 @@ export default function App() {
 
           {/* USERS */}
           <Route path='/user/:username' element={<Userpage/>} />
-          <Route path="/user/register" element={<UserRegistrationPage/>} />
-          <Route path="/user/login" element={<Login/>} />
           <Route path="/user/deleteuser" element={<DeleteUser/>} />
-          <Route path="/user/updatepassword" element={<ChangePassword/>} />
           </Route>
       </Routes>
     </BrowserRouter>

@@ -5,17 +5,12 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [verifypassword, setVerifyPassword] = useState('');
-    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const navi = () => {
       navigate('/');
     }
 
-    function handleInvalid(event){
-      setError("Password must be at least 8 characters long, and contain at least one number");
-      return(error);
-    }
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Validate password
@@ -37,8 +32,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     })
       .then(response => {
         console.log(response.headers);
-        //navigate("/")
-        // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
+        
       })
       .then(data => {
         setIsVisible("")
