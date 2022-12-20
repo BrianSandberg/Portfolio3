@@ -8,13 +8,13 @@ import Header from '../Header';
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
 function Login ({isVisible, setIsVisible}) {
+  //const {isVisible, setIsVisible} = props;
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-
-
+  
   const navi = () => {
     navigate('/');
   }
