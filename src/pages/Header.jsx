@@ -45,8 +45,8 @@ function Header() {
     )
 
     function registerButton() {
-        console.log("registerButton " + isVisible);
-        if (isVisible == "") {
+        console.log("registerButton " + isVisible );
+        if (isVisible == "" || isVisible == "loggingin") {
             return (
                 <button onClick={() => { setIsVisible("registering") }}>
                     Register
@@ -59,8 +59,9 @@ function Header() {
     }
 
     function signInButton() {
+      
         console.log("signInButton " + isVisible);
-        if (isVisible == "") {
+        if (isVisible == "" || isVisible == "registering") {
             return (
                 <div>
                     <button onClick={() => { setIsVisible("loggingin") }}>
@@ -149,7 +150,7 @@ function Header() {
             setIsVisible("loggedin");
         }
         else {
-            setIsVisible("loggedout");
+            setIsVisible("");
         }
     }
 }
