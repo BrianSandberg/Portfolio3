@@ -10,13 +10,14 @@ import Userpage from './Users/Userpage'
 import UserPageButton from '../Components/Buttons/UserPageButton'
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 import Login from './Users/LoginPage';
+import RegistrationPage from './Users/RegistrationPage'
 
 
 
 function Header() {
 
     const { theme, setTheme } = useContext(ThemeContext)
-    const [isVisible, setIsVisible] = useState("loggedin");
+    const [isVisible, setIsVisible] = useState("");
 
     const navigate = useNavigate();
 
@@ -30,8 +31,9 @@ function Header() {
             <Container color={theme}>
                 <Title color={theme}>Movie Database Application</Title>
                 {/*Skal vel have lavet "My Site" om til et link til ens userpage? */}
-
-                {loginButton()}
+                {loginComp()}
+                {registerComp()}
+                {signInButton()}
                 {registerButton()}
                 {userpageButton()}
                 {logoutButton()}
@@ -43,50 +45,37 @@ function Header() {
     )
 
     function registerButton() {
-        console.log("REGISTERBUTTON " + isVisible);
-        if (isVisible == "loggedout") {
+        console.log("registerButton " + isVisible);
+        if (isVisible == "") {
+            return (
+                <button onClick={() => { setIsVisible("registering") }}>
+                    Register
+                </button>
+            )
+        }
+        else {
+            return null;
+        }
+    }
+
+    function signInButton() {
+        console.log("signInButton " + isVisible);
+        if (isVisible == "") {
             return (
                 <div>
-                    <button onClick={() => navigate("user/register")}>
-                        Register
+                    <button onClick={() => { setIsVisible("loggingin") }}>
+                        Sign in!
                     </button>
                 </div>
             )
         }
-        else{
+        else {
             return null;
         }
-    }
-
-    function logoutButton() {
-        console.log("LOGOUTBUTTON " + isVisible);
-        if (isVisible == "loggedin") {
-            return (
-
-
-                <div>
-                    <button
-
-                        //Removes the users jwt token and their username, from the localstorage
-                        onClick={() => {
-                            localStorage.removeItem('token');
-                            localStorage.removeItem('username');
-                            setIsVisible("loggedout");
-                            navigate("/");
-                        }}
-                    >
-                        Logout    </button>
-                </div>
-            )
-        }
-        else{
-            return null;
-        }
-
     }
 
     function userpageButton() {
-        console.log("USERBUTTON " + isVisible);
+        console.log("userpageButton " + isVisible);
         if (isVisible == "loggedin") {
             return (
                 <div>
@@ -96,27 +85,64 @@ function Header() {
                 </div>
             )
         }
-        else{
+        else {
             return null;
         }
     }
 
-    function loginButton() {
-        console.log("LOGINBUTTON " + isVisible);
-        if (isVisible == "loggedout") {
+    function logoutButton() {
+        console.log("LOGOUTBUTTON " + isVisible);
+        if (isVisible == "loggedin") {
             return (
                 <div>
-                    <button onClick={() => { navigate("user/login", {isVisible: {isVisible}, setIsVisible: {setIsVisible}});
-                }}>
-                        Sign in!
-                    </button>
+                    <button
+
+                        //Removes the users jwt token and their username, from the localstorage
+                        onClick={() => {
+                            localStorage.removeItem('token');
+                            localStorage.removeItem('username');
+                            setIsVisible("");
+                            navigate("/");
+                        }}
+                    >
+                        Logout    </button>
                 </div>
             )
         }
-        else{
+        else {
             return null;
         }
     }
+
+    function loginComp() {
+        console.log("loginComp " + isVisible);
+        if (isVisible == "loggingin") {
+            return (
+                <div>
+                    <Login isVisible={isVisible} setIsVisible={setIsVisible}></Login>
+                </div>
+            )
+        }
+        else {
+            return null;
+        }
+    }
+
+    function registerComp() {
+        console.log("registerComp " + isVisible);
+        if (isVisible == "registering") {
+            return (
+                <div>
+                    <RegistrationPage isVisible={isVisible} setIsVisible={setIsVisible}></RegistrationPage>
+                </div>
+            )
+        }
+        else {
+            return null;
+        }
+    }
+
+   
 
     function checkState() {
         if (localStorage.getItem('token') !== null && localStorage.getItem('username') !== null) {

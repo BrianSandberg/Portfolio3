@@ -19,7 +19,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
       }
     }
   }*/
-  const RegistrationPage = () =>{
+  function RegistrationPage({isVisible, setIsVisible}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [verifypassword, setVerifyPassword] = useState('');
@@ -57,7 +57,9 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
         //navigate("/")
         // Resonse from the server - Skal lige finde ud af om requesten er afhængig af response her
       })
-      .then(data => {navi()})
+      .then(data => {
+        setIsVisible("")
+        navi()})
       .catch(error => {
         // Handle any errors that occur
         console.log(error.message);

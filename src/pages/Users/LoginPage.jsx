@@ -7,11 +7,13 @@ import Header from '../Header';
 
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
-const Login = (isVisible, setIsVisible) => {
+function Login ({isVisible, setIsVisible}) {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+
 
   const navi = () => {
     navigate('/');
@@ -40,8 +42,8 @@ const Login = (isVisible, setIsVisible) => {
         console.log(data.token);
         localStorage.setItem('username', data.username);
         localStorage.setItem('token', data.token);
-        //setIsVisible("loggedin");
-        console.log(isVisible);
+        setIsVisible("loggedin");
+        //console.log(isVisible);
         navi();
 
       })
