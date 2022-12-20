@@ -29,8 +29,8 @@ function Rating() {
       },
     })
       .then(response => response.json())
-      .then(data => {console.log(data)
-        window.location.reload();
+      .then(data => {
+        console.log(data)
       })
       .catch(error => console.error(error));
   }

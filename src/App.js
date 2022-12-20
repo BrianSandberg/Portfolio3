@@ -122,8 +122,6 @@ export default function App() {
           <Route path="/person/:id/CoActors" element={<CoActorsPage/>} />
 
 
-{/*Har muligvis ikke 100p styr på det her routing, men prøver at kigge lidt på det, og se om jeg ikke 
-kan få sat det nogenlunde op, så de fleste url's virker */}
           {/* USERS */}
           <Route path='/user/:username' element={<Userpage/>} />
           <Route path="/user/register" element={<UserRegistrationPage/>} />
