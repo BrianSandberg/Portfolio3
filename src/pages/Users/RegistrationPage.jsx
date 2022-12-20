@@ -23,14 +23,15 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [verifypassword, setVerifyPassword] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const navi = () => {
       navigate('/');
     }
 
-    function handleChange(event){
-      setPassword(event.target.value);
+    function handleInvalid(event){
+      setError("Password must be at least 8 characters long, and contain at least one number");
     }
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -92,7 +93,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
             name="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            title="Password must be at least 8 characters long, and contain at least one number"
+            onInvalid={handleInvalid}
             />
         </label>
         <label>
