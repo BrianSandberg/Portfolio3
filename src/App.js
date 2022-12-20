@@ -17,7 +17,7 @@ import UserRegistrationPage from "./pages/Users/RegistrationPage";
 import DeleteUser from "./pages/Users/DeleteUser";
 import ChangePassword from "./pages/Users/ChangePassword";
 
-
+//section 3
 export default function App() {
   return (
     <BrowserRouter>
