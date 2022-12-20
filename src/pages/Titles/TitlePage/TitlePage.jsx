@@ -15,8 +15,6 @@ function TitlePage() {
 
     const titleUrl = api + id;
 
-    const titleUrl2 = "http://localhost:5001/api/titles/tt0343107"
-
     const starPicUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Star%2A.svg/2234px-Star%2A.svg.png";
 
     // tt0343107
@@ -101,6 +99,4 @@ function TitlePage() {
     
     );
 };
-
-
 export default TitlePage;
