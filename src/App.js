@@ -84,11 +84,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
-import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
-import Landing from "./pages/Landing";
+import Landing from "./Components/Landing";
 import TitlesSearchResult from "./pages/Titles/TitlesSearchResult/TitlesSearchResult";
 import PersonsSearchResult from "./pages/Persons/PersonsSearchResult/PersonsSearchResult";
 

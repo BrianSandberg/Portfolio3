@@ -2,7 +2,7 @@ import {Box} from "../Components/StyledComponents/Box";
 import { Outlet, Link } from "react-router-dom";
 import React, {useState} from "react";
 import NavigationBar from "../Components/Navigation/NavigationBar";
-import Footer from "./Footer";
+import Footer from "../Components/Footer";
 import ThemeContext from "../Components/ThemeContext";
 import Header from "./Header";
 
