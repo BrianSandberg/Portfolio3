@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { Tabs, Tab } from "react-bootstrap";
 import { Outlet, Link, json, useParams } from "react-router-dom";
 import TitleDetails from "./TitleDetails";
-
 import BookmarkTitleButton from "../../../Components/Buttons/BookmarkTitleButton";
 import Rating from "../../../Components/Buttons/RateTitleButton";
 
