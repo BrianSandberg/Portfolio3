@@ -72,6 +72,19 @@ const Userpage = () => {
            {insertPersonRows(userBookmarkedActors)}
             </tbody>
           </table>
+          <h2>Title Ratings:</h2>
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Title ID</th>
+                <th scope="col">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+           {insertRatingRows(userRatings)}
+            </tbody>
+          </table>
         </>
       ) : (
         <p>Loading user information...</p>
@@ -110,6 +123,24 @@ const Userpage = () => {
           <td>{counter++}</td>
           <td>{element.person_ID}</td>
           <td>{element.timestamp}</td>
+
+        </tr>
+      ))
+    }
+    else return <tr><td>No List ???</td></tr>
+  }
+
+  function insertRatingRows(list) {
+    let counter = 1
+    if (list != null) {
+      return (list.map(element =>
+        <tr role="button" onClick={() => navigate("/title/" + element.title_ID)}>
+          {console.log("list.title_ID")}
+
+          {console.log(list.title_ID)}
+          <td>{counter++}</td>
+          <td>{element.title_ID}</td>
+          <td>{element.rating}</td>
 
         </tr>
       ))
