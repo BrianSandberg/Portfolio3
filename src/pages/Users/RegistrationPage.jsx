@@ -1,24 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
-
-/*export default class UserRegistrationPage extends React.Component {
-  /*  state = {
-      username: "",
-      password: "",
-      passwordVerification: ""
-    };
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: {
-        Username: props.Username,
-        Password: props.Password,
-        PasswordVerification: props.PasswordVerification
-      }
-    }
-  }*/
   function RegistrationPage({isVisible, setIsVisible}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -32,6 +14,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
     function handleInvalid(event){
       setError("Password must be at least 8 characters long, and contain at least one number");
+      return(error);
     }
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,19 +24,15 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
       return ('Passwords does not match');
     }
     const requestBody = {
-      //Request body skal hedde {"username": "userinput", "password":"passwordinput"}
       username: username,
       password: password
     };
-    //console.log(requestBody);
-    // Submit the form values to the server
-    //Needs the chrome extension called "allow-control-allow-origin"
+
     fetch("http://localhost:5001/api/users/register", {
 
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
-      //{"authentication": "token"},
-      //Skal sende username og password med requesten
+
       body: JSON.stringify(requestBody)
     })
       .then(response => {
@@ -89,18 +68,16 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
           Password:
           <input
             type="password"
-            pattern="(?=.*/d).{8,}"
             name="password"
+            minLength={10}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            onInvalid={handleInvalid}
             />
         </label>
         <label>
           Verify Password:
           <input
             type="password"
-            pattern="(?=.*/d).{8,}"
             name="passwordVerification"
             value={verifypassword}
             onChange={(event) => setVerifyPassword(event.target.value)}
