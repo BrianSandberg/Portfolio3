@@ -37,7 +37,13 @@ function Rating() {
 
   useEffect(() => {
     const fetchObject = async () => {
-      const response = await fetch(apiBase + username);
+      const response = await fetch(apiBase + username,{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      });
       console.log(response.status)
 
       if (response.status === 200) {

@@ -5,11 +5,11 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
 function Login ({isVisible, setIsVisible}) {
   //const {isVisible, setIsVisible} = props;
-  const [token, setToken] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const token = localStorage.getItem('token');
   
   const navi = () => {
     navigate('/');
