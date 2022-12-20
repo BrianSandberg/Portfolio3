@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import DeleteUserButton from '../../Components/Buttons/DeleteUserButton';
-import ChangePasswordButton from '../../Components/Buttons/ChangePasswordButton';
-import ChangePassword from './ChangePassword';
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 
 
