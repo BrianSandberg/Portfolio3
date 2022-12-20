@@ -29,6 +29,9 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
       navigate('/');
     }
 
+    function handleChange(event){
+      setPassword(event.target.value);
+    }
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Validate password
@@ -89,6 +92,7 @@ import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
             name="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            title="Password must be at least 8 characters long, and contain at least one number"
             />
         </label>
         <label>
