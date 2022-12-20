@@ -3,11 +3,6 @@ import ThemeContext from '../Components/ThemeContext'
 import Container from '../Components/StyledComponents/Container'
 import Title from '../Components/StyledComponents/Title'
 import DarkmodeButton from '../Components/StyledComponents/DarkmodeButton'
-import LoginButton from '../Components/Buttons/LoginButton'
-import Logout from '../Components/Buttons/LogoutButton'
-import RegisterButton from '../Components/Buttons/RegistrationButton'
-import Userpage from './Users/Userpage'
-import UserPageButton from '../Components/Buttons/UserPageButton'
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
 import Login from './Users/LoginPage';
 import RegistrationPage from './Users/RegistrationPage'

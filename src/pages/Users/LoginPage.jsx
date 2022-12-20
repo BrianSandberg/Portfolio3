@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Userpage from './Userpage';
 import { Outlet, Link, json, useParams, useNavigate } from "react-router-dom";
-import logout from '../../Components/Buttons/LogoutButton';
-import LoginButton from '../../Components/Buttons/LoginButton';
-import Header from '../Header';
 
 
 //Skal måske laves lidt om, så det er sin egen side, istedet for et fast component i header...
